@@ -39,10 +39,12 @@
                 {{ model.status?.thru }}
             </span>
         </div>
-        <div class="w-[54px] py-0.5 flex justify-center items-center bg-masters-900 text-masters-200"
+        <div class="w-[54px] py-0.5 flex justify-center items-center text-masters-200"
             :class="
-                { 'border-t border-masters-900': index === 0 },
-                { 'border-b border-masters-900': index !== 7 && index !== 3 }
+                { 'border-t': index === 0 },
+                { 'border-b': index !== 7 && index !== 3 },
+                { 'bg-masters-300 border-masters-300': model.statistics[0]?.value < 0 },
+                { 'bg-masters-900 border-masters-900': model.statistics[0]?.value > -1 }
             "
         >
             <span :class="{ 'opacity-50': index > 3}">
