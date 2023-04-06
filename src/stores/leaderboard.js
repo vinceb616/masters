@@ -78,7 +78,7 @@ export const useLeaderboardStore = defineStore('leaderboard', {
                         name: 'Adam Scott'
                     },
                     {
-                        name: 'Seamus Power'
+                        name: 'Séamus Power'
                     },
                     {
                         name: 'Chris Kirk'
