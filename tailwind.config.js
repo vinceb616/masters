@@ -158,6 +158,13 @@ module.exports = {
       fuchsia: colors.fuchsia,
       pink: colors.pink,
       rose: colors.rose,
+      masters: {
+          900: '#006747',
+          500: '#009B77',
+          400: '#EFED00',
+          300: '#ba0c2f',
+          200: '#ffffff',
+      },
     }),
     columns: {
       auto: 'auto',
@@ -327,6 +334,7 @@ module.exports = {
         '"Courier New"',
         'monospace',
       ],
+      nova: ['Noto Serif', 'serif'],
     },
     fontSize: {
       xs: ['0.75rem', { lineHeight: '1rem' }],

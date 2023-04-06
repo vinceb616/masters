@@ -2,7 +2,9 @@ import { defineStore } from 'pinia';
 
 export const useLeaderboardStore = defineStore('leaderboard', {
     state: () => ({
+        leaderboard: [],
         players: [],
+        createdTeams: [],
         teams: [
             {
                 teamName: 'Team Vince',
@@ -332,9 +334,28 @@ export const useLeaderboardStore = defineStore('leaderboard', {
                 const data = await response.json();
                 
                 this.players = data.events[0].competitions[0].competitors;
+                this.createTeams();
+                this.createLeaderboard();
             } catch (error) {
                 console.log(error)
             }
+        },
+        createLeaderboard() {
+            let leaderboard = [];
+            leaderboard = this.createdTeams.sort((a, b) => (a.totalScore > b.totalScore) ? 1 : -1);
+
+            this.leaderboard = leaderboard;
+        },
+        createTeams() {
+            this.teams.forEach(team => {
+                let newTeam = {};
+
+                newTeam.teamName = team.teamName;
+                newTeam.players = this.getPlayersList(team.players);
+                newTeam.totalScore = this.getTeamScore(team.players);
+
+                this.createdTeams = [...this.createdTeams, newTeam];
+            });
         },
         getTeamScore(list) {
             let totalScore = 0;
@@ -343,13 +364,10 @@ export const useLeaderboardStore = defineStore('leaderboard', {
             playerList.forEach((player, i) => {
                 if (i < 3) {
                     if (player) {
-                        console.log(player);
-                        totalScore += player.score?.value;
+                        totalScore += player.statistics[0]?.value;
                     }
                 }
             });
-
-            console.log('total score', totalScore);
 
             return totalScore;
         },
@@ -358,11 +376,11 @@ export const useLeaderboardStore = defineStore('leaderboard', {
             let playerList = [];
 
             list.forEach(item => {
-                const filterPlayer = players.find(player => player.athlete?.displayName.toLowerCase() === item.name.toLowerCase());
+                const filterPlayer = players.find(player => player.athlete?.displayName?.toLowerCase() === item?.name?.toLowerCase());
                 playerList = [...playerList, filterPlayer];
             });
 
-            playerList.sort((a, b) => (a.score.value > b.score.value) ? 1 : -1);
+            playerList.sort((a, b) => (a.statistics[0].value > b.statistics[0].value) ? 1 : -1);
 
             return playerList;
         }

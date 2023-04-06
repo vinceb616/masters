@@ -1,15 +1,18 @@
 <template>
     <div class="space-y-8">
         <div
-            v-for="(team, index) in leaderboardStore.teams"
+            v-for="(team, index) in leaderboardStore.createdTeams"
             :key="index"
             class="w-full"
         >
-            <h2 class="flex justify-center text-xs font-medium border-t border-slate-400 px-4">{{ team.teamName }}</h2>
+            <h2 class="flex justify-center text-xs font-medium border-t border-masters-900 px-4">{{ team.teamName }}</h2>
 
-            <div class="border border-slate-400">
+            <div class="text-sm">
+                <div class="w-full">
+                    <player-attributes />
+                </div>
                 <div
-                    v-for="(item, index) in leaderboardStore.getPlayersList(team.players)"
+                    v-for="(item, index) in team.players"
                     :key="index"
                     class="w-full"
                 >
@@ -17,7 +20,7 @@
                 </div>
 
                 <div class="w-full">
-                    <total :model="team.players" />
+                    <total :score="team.totalScore" />
                 </div>
             </div>
         </div>
@@ -25,6 +28,7 @@
 </template>
 
 <script setup>
+import PlayerAttributes from './player-attributes.vue';
 import Player from './player.vue';
 import Total from './total.vue';
 import { useLeaderboardStore } from '../stores/leaderboard';

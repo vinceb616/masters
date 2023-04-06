@@ -1,32 +1,27 @@
 <template>
     <div class="w-full flex items-center">
-        <div class="w-full px-4 py-0.5 bg-slate-100 font-bold">Team Score</div>
-        <div class="w-[54px] py-0.5 flex justify-center items-center bg-green-700 text-white">
-            {{ totalScore }}
+        <div class="flex-1 px-4 py-0.5 bg-masters-500 text-white text-[12px]">TEAM SCORE</div>
+        <div class="w-[54px] py-0.5 flex justify-center items-center bg-masters-900 text-masters-200">
+            {{ displayScore }}
         </div>
     </div>
 </template>
 
 <script setup>
 import { computed } from 'vue';
-import { useLeaderboardStore } from '../stores/leaderboard';
-
-const leaderboardStore = useLeaderboardStore();
 
 const props = defineProps({
-    model: {
-        type: Array,
-        default: () => ([]),
+    score: {
+        type: Number,
+        default: null,
     },
 });
 
-const totalScore = computed(() => {
-    let score = leaderboardStore.getTeamScore(props.model);
-
-    if (score === 0) {
+const displayScore = computed(() => {
+    if (props.score === 0) {
         return 'E';
     } else {
-        return score;
+        return props.score;
     }
 });
 </script>
