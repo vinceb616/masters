@@ -364,7 +364,7 @@ export const useLeaderboardStore = defineStore('leaderboard', {
 
             playerList.forEach((player, i) => {
                 if (i < 4) {
-                    if (player) {
+                    if (player && player.status?.displayValue !== 'WD') {
                         totalScore += player.statistics[0]?.value;
                     }
                 }
@@ -375,13 +375,21 @@ export const useLeaderboardStore = defineStore('leaderboard', {
         getPlayersList(list) {
             const players = this.players;
             let playerList = [];
+            let cutPlayers = [];
 
             list.forEach(item => {
                 const filterPlayer = players.find(player => player.athlete?.displayName?.toLowerCase() === item?.name?.toLowerCase());
-                playerList = [...playerList, filterPlayer];
+
+                if (filterPlayer.status?.displayValue === 'WD') {
+                    cutPlayers = [...cutPlayers, filterPlayer]
+                } else {
+                    playerList = [...playerList, filterPlayer];
+                }
             });
 
             playerList.sort((a, b) => (a.statistics[0].value > b.statistics[0].value) ? 1 : -1);
+
+            playerList = [...playerList, ...cutPlayers]
 
             return playerList;
         }

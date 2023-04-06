@@ -46,7 +46,12 @@
             "
         >
             <span :class="{ 'opacity-50': index > 3}">
-                {{ model.statistics[0]?.displayValue }}
+                <template v-if="model.status?.displayValue === 'WD'">
+                    {{ model.status?.displayValue }}
+                </template>
+                <template v-else>
+                    {{ model.statistics[0]?.displayValue }}
+                </template>
             </span>
         </div>
     </div>
@@ -59,7 +64,7 @@ const props = defineProps({
         default: () => ({}),
     },
     index: {
-        type: String,
+        type: Number,
         default: null
     }
 });
