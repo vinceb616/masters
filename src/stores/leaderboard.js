@@ -236,6 +236,93 @@ export const useLeaderboardStore = defineStore('leaderboard', {
                     }
                 ]
             },
+            {
+                teamName: 'Team Audrey',
+                players: [
+                    {
+                        name: 'Rory Mcilroy'
+                    },
+                    {
+                        name: 'Max Homa'
+                    },
+                    {
+                        name: 'Shane Lowry'
+                    },
+                    {
+                        name: 'Louis Oosthuizen'
+                    },
+                    {
+                        name: 'Mito Pereira'
+                    },
+                    {
+                        name: 'Bubba Watson'
+                    },
+                    {
+                        name: 'Sepp Straka'
+                    },
+                    {
+                        name: 'Vijay Singh'
+                    }
+                ]
+            },
+            {
+                teamName: 'Team Max',
+                players: [
+                    {
+                        name: 'Jordan Spieth'
+                    },
+                    {
+                        name: 'Corey Conners'
+                    },
+                    {
+                        name: 'Min Woo Lee'
+                    },
+                    {
+                        name: 'Sahith Theegala'
+                    },
+                    {
+                        name: 'Chris Kirk'
+                    },
+                    {
+                        name: 'Gordon Sargent'
+                    },
+                    {
+                        name: 'Harrison Crowe'
+                    },
+                    {
+                        name: 'Adam Svensson'
+                    }
+                ]
+            },
+            {
+                teamName: 'Team Ross',
+                players: [
+                    {
+                        name: 'Scottie Scheffler'
+                    },
+                    {
+                        name: 'Cameron Young'
+                    },
+                    {
+                        name: 'Tyrrell Hatton'
+                    },
+                    {
+                        name: 'Keith Mitchell'
+                    },
+                    {
+                        name: 'Chris Kirk'
+                    },
+                    {
+                        name: 'J.T. Poston'
+                    },
+                    {
+                        name: 'Scott Stallings'
+                    },
+                    {
+                        name: 'Sam Bennett'
+                    }
+                ]
+            },
         ]
     }),
     actions: {
