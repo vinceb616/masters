@@ -363,7 +363,7 @@ export const useLeaderboardStore = defineStore('leaderboard', {
             const playerList = this.getPlayersList(list);
 
             playerList.forEach((player, i) => {
-                if (i < 3) {
+                if (i < 4) {
                     if (player) {
                         totalScore += player.statistics[0]?.value;
                     }

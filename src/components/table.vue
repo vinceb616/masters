@@ -5,7 +5,7 @@
             :key="index"
             class="w-full"
         >
-            <h2 class="flex justify-center text-xs font-medium border-t border-masters-900 px-4">{{ team.teamName }}</h2>
+            <h2 class="flex justify-center text-masters-900 text-xs font-medium border-t border-masters-900 px-4">{{ team.teamName }}</h2>
 
             <div class="text-sm">
                 <div class="w-full">
