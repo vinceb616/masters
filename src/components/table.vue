@@ -15,6 +15,7 @@
                     v-for="(item, index) in team.players"
                     :key="index"
                     class="w-full"
+                    :class="{ 'border-b border-masters-400': index === 3 }"
                 >
                     <player :model="item" :index="index" />
                 </div>

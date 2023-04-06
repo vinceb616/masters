@@ -2,6 +2,7 @@ import { defineStore } from 'pinia';
 
 export const useLeaderboardStore = defineStore('leaderboard', {
     state: () => ({
+        eventKey: '401465508',
         leaderboard: [],
         players: [],
         createdTeams: [],
@@ -330,7 +331,7 @@ export const useLeaderboardStore = defineStore('leaderboard', {
     actions: {
         async fetchLeaderboard() {
             try {
-                const response = await fetch("https://site.api.espn.com/apis/site/v2/sports/golf/leaderboard?event=401465508");
+                const response = await fetch(`https://site.api.espn.com/apis/site/v2/sports/golf/leaderboard?event=${this.eventKey}`);
                 const data = await response.json();
                 
                 this.players = data.events[0].competitions[0].competitors;

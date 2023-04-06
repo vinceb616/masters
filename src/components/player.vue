@@ -3,7 +3,7 @@
         <div 
             class="w-[40px] text-center py-0.5 bg-white border-l border-slate-300"
             :class="
-                { 'border-b border-slate-300': index !== 7 }
+                { 'border-b border-slate-300': index !== 7 && index !== 3 }
             "
         >
             <span class="text-xs" 
@@ -15,9 +15,9 @@
             </span>
         </div>
         <div 
-            class="flex-1 px-4 py-0.5 bg-white border-l border-slate-300"
+            class="flex-1 px-4 py-0.5 bg-white border-l border-slate-300 whitespace-nowrap text-ellipsis overflow-hidden"
             :class="
-                { 'border-b border-slate-300': index !== 7 }
+                { 'border-b border-slate-300': index !== 7 && index !== 3 }
             "
         >
             <span :class="{ 'opacity-50': index > 3}">
@@ -27,7 +27,7 @@
         <div 
             class="w-[40px] text-center py-0.5 bg-white border-l border-slate-300"
             :class="
-                { 'border-b border-slate-300': index !== 7 }
+                { 'border-b border-slate-300': index !== 7 && index !== 3 }
             "
         >
             <span class="text-xs" 
@@ -42,8 +42,7 @@
         <div class="w-[54px] py-0.5 flex justify-center items-center bg-masters-900 text-masters-200"
             :class="
                 { 'border-t border-masters-900': index === 0 },
-                { 'border-b border-masters-900': index !== 7 },
-                { 'border-b border-masters-400': index === 3 }
+                { 'border-b border-masters-900': index !== 7 && index !== 3 }
             "
         >
             <span :class="{ 'opacity-50': index > 3}">
