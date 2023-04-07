@@ -104,7 +104,6 @@ const negativeScore = computed(() => {
 
 const positiveScore = computed(() => {
     const letter = props.model.linescores[1]?.displayValue.charAt(0);
-    console.log('letter ', props.model.linescores[1]?.length);
 
     if (letter === '+') {
         return true;

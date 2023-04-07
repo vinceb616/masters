@@ -6,6 +6,7 @@ export const useLeaderboardStore = defineStore('leaderboard', {
         leaderboard: [],
         players: [],
         createdTeams: [],
+        tournament: null,
         teams: [
             {
                 teamName: 'Team Vince',
@@ -335,6 +336,7 @@ export const useLeaderboardStore = defineStore('leaderboard', {
                 const data = await response.json();
                 
                 this.players = data.events[0].competitions[0].competitors;
+                this.tournament = data.events[0].tournament;
                 this.createTeams();
                 this.createLeaderboard();
             } catch (error) {

@@ -1,6 +1,6 @@
 <template>
   <div class="bg-slate-100 font-nova min-h-screen flex flex-col justify-between">
-    <main class="container max-w-3xl p-4 pb-0">
+    <main class="container max-w-3xl p-4 pb-0 mx-auto">
       <div class="w-full flex justify-center mb-10">
         <img alt="The masters" src="./assets/masters-logo.png" class="w-full max-w-[200px]" />
       </div>

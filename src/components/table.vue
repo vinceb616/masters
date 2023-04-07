@@ -15,7 +15,10 @@
                     v-for="(item, index) in team.players"
                     :key="index"
                     class="w-full"
-                    :class="{ 'border-b border-masters-400': index === 3 }"
+                    :class="
+                        { 'border-b border-masters-300': index === cutLine(team.players) },
+                        { 'border-b border-masters-400': index === 3 }
+                    "
                 >
                     <player :model="item" :index="index" />
                 </div>
@@ -29,11 +32,20 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import PlayerAttributes from './player-attributes.vue';
 import Player from './player.vue';
 import Total from './total.vue';
 import { useLeaderboardStore } from '../stores/leaderboard';
 
 const leaderboardStore = useLeaderboardStore();
+
+const cutLine = (players) => {
+    const cutIndex = players.findIndex(player => player.statistics[0]?.displayValue > leaderboardStore.tournament.cutScore);
+
+    console.log('cut index ', cutIndex);
+
+    return cutIndex - 1;
+}
 
 </script>
