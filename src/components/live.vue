@@ -4,7 +4,7 @@
 
         <div class="border-l border-slate-300 text-sm">
             <div class="w-full">
-                <player-attributes :isLeaderboard="true" />
+                <player-attributes />
             </div>
             <div
                 v-for="(player, index) in sortedLivePlayers"

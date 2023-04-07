@@ -11,6 +11,13 @@
                 {{ model.athlete?.displayName }}
             </span>
         </div>
+        <div class="w-[40px] text-center py-0.5 bg-white border-l border-b border-slate-300">
+            <span class="text-xs" 
+                :class="{ 'text-masters-500': model.status?.type?.name === 'STATUS_IN_PROGRESS' }"
+            >
+                {{ model.status?.thru }}
+            </span>
+        </div>
         <div 
             class="w-[54px] py-0.5 flex justify-center items-center border-b text-masters-200"
             :class="
