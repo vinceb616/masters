@@ -15,6 +15,11 @@
                 THRU
             </span>
         </div>
+        <div v-if="!isLeaderboard" class="w-[40px] text-center py-0.5">
+            <span class="text-[9px]">
+                TODAY
+            </span>
+        </div>
         <div class="w-[54px] py-0.5 flex justify-center items-center">
             <span class="text-[9px]">
                 TOTAL

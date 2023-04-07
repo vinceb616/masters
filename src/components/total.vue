@@ -2,7 +2,7 @@
     <div class="w-full flex items-center">
         <div class="flex-1 px-4 py-0.5 bg-masters-500 text-white text-[12px]">TEAM SCORE</div>
         <div 
-            class="w-[54px] py-0.5 flex justify-center items-center bg-masters-900 text-masters-200"
+            class="w-[54px] py-0.5 flex justify-center items-center text-masters-200"
             :class="
                 { 'bg-masters-300 border-masters-300': props.score < 0 },
                 { 'bg-masters-900 border-masters-900': props.score > -1 }
