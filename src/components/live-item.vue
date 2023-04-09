@@ -15,7 +15,12 @@
             <span class="text-xs" 
                 :class="{ 'text-masters-500': model.status?.type?.name === 'STATUS_IN_PROGRESS' }"
             >
-                {{ model.status?.thru }}
+                <template v-if="model.status?.thru || model.status?.thru === 0">
+                    {{ model.status?.thru }}
+                </template>
+                <template v-else>
+                    -
+                </template>
             </span>
         </div>
         <div 
@@ -23,11 +28,19 @@
         >
             <span class="text-xs" 
                 :class="
-                    { 'text-masters-300': negativeScore },
-                    { 'text-masters-500': positiveScore }
+                    { 'text-masters-300': negativeScore && model.status?.displayValue !== 'WD' && model.status?.displayValue !== 'CUT' },
+                    { 'text-masters-500': positiveScore && model.status?.displayValue !== 'WD' && model.status?.displayValue !== 'CUT' }
                 "
             >
-                {{ model.linescores[1]?.displayValue }}
+                <template v-if="model.status?.displayValue === 'WD' || model.status?.displayValue === 'CUT'">
+                    {{ model.status?.displayValue }}
+                </template>
+                <template v-else-if="model.linescores[model.linescores.length - 1]?.displayValue">
+                    {{ model.linescores[model.linescores.length - 1]?.displayValue }}
+                </template>
+                <template v-else>
+                    -
+                </template>
             </span>
         </div>
         <div 
@@ -60,9 +73,9 @@ const props = defineProps({
 });
 
 const negativeScore = computed(() => {
-    const letter = props.model.linescores[1]?.displayValue.charAt(0);
+    const letter = props.model.linescores[props.model.linescores.length - 1]?.displayValue.charAt(0);
 
-    if (props.model.linescores[1]?.displayValue !== '-' && letter === '-') {
+    if (props.model.linescores[props.model.linescores.length - 1]?.displayValue !== '-' && letter === '-') {
         return true;
     } else {
         return false;
@@ -70,7 +83,7 @@ const negativeScore = computed(() => {
 });
 
 const positiveScore = computed(() => {
-    const letter = props.model.linescores[1]?.displayValue.charAt(0);
+    const letter = props.model.linescores[props.model.linescores.length - 1]?.displayValue.charAt(0);
 
     if (letter === '+') {
         return true;
@@ -78,5 +91,4 @@ const positiveScore = computed(() => {
         return false;
     }
 });
-
 </script>

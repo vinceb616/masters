@@ -6,6 +6,8 @@ export const useLeaderboardStore = defineStore('leaderboard', {
         leaderboard: [],
         players: [],
         createdTeams: [],
+        eligibleTeams: [],
+        cutTeams: [],
         tournament: null,
         teams: [
             {
@@ -345,7 +347,8 @@ export const useLeaderboardStore = defineStore('leaderboard', {
         },
         createLeaderboard() {
             let leaderboard = [];
-            leaderboard = this.createdTeams.sort((a, b) => (a.totalScore > b.totalScore) ? 1 : -1);
+            leaderboard = this.eligibleTeams.sort((a, b) => (a.totalScore > b.totalScore) ? 1 : -1);
+            leaderboard = [...leaderboard, ...this.cutTeams];
 
             this.leaderboard = leaderboard;
         },
@@ -357,20 +360,32 @@ export const useLeaderboardStore = defineStore('leaderboard', {
                 newTeam.players = this.getPlayersList(team.players);
                 newTeam.totalScore = this.getTeamScore(team.players);
 
+                if (newTeam.totalScore === 'CUT') {
+                    this.cutTeams = [...this.cutTeams, newTeam];
+                } else {
+                    this.eligibleTeams = [...this.eligibleTeams, newTeam];
+                }
+
                 this.createdTeams = [...this.createdTeams, newTeam];
             });
         },
         getTeamScore(list) {
             let totalScore = 0;
+            let count = 0;
             const playerList = this.getPlayersList(list);
 
             playerList.forEach((player, i) => {
                 if (i < 4) {
-                    if (player && player.status?.displayValue !== 'WD') {
+                    if (player && player.status?.displayValue !== 'WD' && player.status?.displayValue !== 'CUT') {
                         totalScore += player.statistics[0]?.value;
+                        count++;
                     }
                 }
             });
+
+            if (count !== 4) {
+                totalScore = 'CUT';
+            }
 
             return totalScore;
         },
@@ -382,7 +397,7 @@ export const useLeaderboardStore = defineStore('leaderboard', {
             list.forEach(item => {
                 const filterPlayer = players.find(player => player.athlete?.displayName?.toLowerCase() === item?.name?.toLowerCase());
 
-                if (filterPlayer.status?.displayValue === 'WD') {
+                if (filterPlayer.status?.displayValue === 'WD' || filterPlayer.status?.displayValue === 'CUT') {
                     cutPlayers = [...cutPlayers, filterPlayer]
                 } else {
                     playerList = [...playerList, filterPlayer];
@@ -391,7 +406,12 @@ export const useLeaderboardStore = defineStore('leaderboard', {
 
             playerList.sort((a, b) => (a.statistics[0].value > b.statistics[0].value) ? 1 : -1);
 
+            console.log('P ', playerList);
+            console.log('C ', cutPlayers);
+
             playerList = [...playerList, ...cutPlayers]
+
+            console.log('PL ', playerList);
 
             return playerList;
         }

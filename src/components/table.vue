@@ -16,11 +16,17 @@
                     :key="index"
                     class="w-full"
                     :class="
-                        { 'border-b border-masters-300': index === cutLine(team.players) },
                         { 'border-b border-masters-400': index === 3 }
                     "
                 >
-                    <player :model="item" :index="index" />
+                    <div
+                        class="w-full"
+                        :class="
+                            { 'border-b border-masters-300': index === cutLine(team.players) }
+                        "
+                    >
+                        <player :model="item" :index="index" :cut-index="cutLine(team.players)" />
+                    </div>
                 </div>
 
                 <div class="w-full">
@@ -42,8 +48,6 @@ const leaderboardStore = useLeaderboardStore();
 
 const cutLine = (players) => {
     const cutIndex = players.findIndex(player => player.statistics[0]?.displayValue > leaderboardStore.tournament.cutScore);
-
-    console.log('cut index ', cutIndex);
 
     return cutIndex - 1;
 }
