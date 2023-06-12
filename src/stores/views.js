@@ -1,12 +1,14 @@
-import { defineStore } from 'pinia';
+import { defineStore } from "pinia";
 
-export const useViewsStore = defineStore('viewsStore', {
-    state: () => ({
-        activeView: 'teams'
-    }),
-    actions: {
-        toggleView(value) {
-            this.activeView = value;
-        }
+export const useViewsStore = defineStore("viewsStore", {
+  state: () => ({
+    event: "us open",
+    isLive: false,
+    activeView: "tiers",
+  }),
+  actions: {
+    toggleView(value) {
+      this.activeView = value;
     },
+  },
 });
