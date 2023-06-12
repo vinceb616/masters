@@ -780,10 +780,15 @@ export const useLeaderboardStore = defineStore("leaderboard", {
       }
     },
     createTiers() {
-      const size = 10;
+      const size = 14;
 
       while (this.tierPlayers.length > 0)
         this.tierGroups.push(this.tierPlayers.splice(0, size));
+
+      if (this.tierGroups[10]) {
+        this.tierGroups[9] = [...this.tierGroups[9], ...this.tierGroups[10]];
+        this.tierGroups.splice(10, 1);
+      }
     },
     createLeaderboard() {
       let leaderboard = [];
@@ -861,12 +866,7 @@ export const useLeaderboardStore = defineStore("leaderboard", {
         a.statistics[0].value > b.statistics[0].value ? 1 : -1
       );
 
-      console.log("P ", playerList);
-      console.log("C ", cutPlayers);
-
       playerList = [...playerList, ...cutPlayers];
-
-      console.log("PL ", playerList);
 
       return playerList;
     },
