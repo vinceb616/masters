@@ -15,7 +15,7 @@
           <img
             alt="Us Open"
             src="./assets/us-open-logo.png"
-            class="w-full max-w-[200px]"
+            class="w-full max-w-[200px] mix-blend-multiply"
           />
         </template>
       </div>
