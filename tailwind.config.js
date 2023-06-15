@@ -162,7 +162,7 @@ module.exports = {
       fuchsia: colors.fuchsia,
       pink: colors.pink,
       rose: colors.rose,
-      masters: {
+      mastersA: {
         900: "#006747",
         500: "#009B77",
         400: "#EFED00",
@@ -170,6 +170,13 @@ module.exports = {
         200: "#ffffff",
       },
       open: {
+        900: "#093B60",
+        500: "#3a6180",
+        400: "#FFD400",
+        300: "#D02030",
+        200: "#ffffff",
+      },
+      masters: {
         900: "#093B60",
         500: "#3a6180",
         400: "#FFD400",

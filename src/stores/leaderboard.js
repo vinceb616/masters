@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 export const useLeaderboardStore = defineStore("leaderboard", {
   state: () => ({
-    eventKey: "401465508",
+    eventKey: "401465533",
     leaderboard: [],
     players: [],
     tierGroups: [],
@@ -41,37 +41,31 @@ export const useLeaderboardStore = defineStore("leaderboard", {
         name: "Max Homa",
       },
       {
-        name: "Justin Thomas",
+        name: "Matt Fitzpatrick",
       },
       {
         name: "Tony Finau",
       },
       {
+        name: "Tyrrell Hatton",
+      },
+      {
+        name: "Justin Thomas",
+      },
+      {
         name: "Dustin Johnson",
-      },
-      {
-        name: "Matt Fitzpatrick",
-      },
-      {
-        name: "Hideki Matsuyama",
       },
       {
         name: "Jason Day",
       },
       {
-        name: "Sungjae Im",
-      },
-      {
-        name: "Shane Lowry",
-      },
-      {
         name: "Cameron Young",
       },
       {
-        name: "Tyrrell Hatton",
+        name: "Justin Rose",
       },
       {
-        name: "Sam Burns",
+        name: "Hideki Matsuyama",
       },
       {
         name: "Bryson DeChambeau",
@@ -80,10 +74,16 @@ export const useLeaderboardStore = defineStore("leaderboard", {
         name: "Tommy Fleetwood",
       },
       {
-        name: "Justin Rose",
+        name: "Sungjae Im",
       },
       {
-        name: "Joaquin Niemann",
+        name: "Shane Lowry",
+      },
+      {
+        name: "Rickie Fowler",
+      },
+      {
+        name: "Sam Burns",
       },
       {
         name: "Corey Conners",
@@ -92,19 +92,22 @@ export const useLeaderboardStore = defineStore("leaderboard", {
         name: "Wyndham Clark",
       },
       {
-        name: "Tom Kim",
-      },
-      {
         name: "Patrick Reed",
-      },
-      {
-        name: "Si Woo Kim",
       },
       {
         name: "Adam Scott",
       },
       {
-        name: "Rickie Fowler",
+        name: "Mito Pereira",
+      },
+      {
+        name: "Joaquin Niemann",
+      },
+      {
+        name: "Si Woo Kim",
+      },
+      {
+        name: "Tom Kim",
       },
       {
         name: "Keegan Bradley",
@@ -116,73 +119,13 @@ export const useLeaderboardStore = defineStore("leaderboard", {
         name: "Min Woo Lee",
       },
       {
-        name: "Davis Riley",
-      },
-      {
-        name: "Louis Oosthuizen",
-      },
-      {
-        name: "Talor Gooch",
-      },
-      {
-        name: "Kurt Kitayama",
-      },
-      {
-        name: "Daniel Berger",
-      },
-      {
-        name: "Cameron Davis",
-      },
-      {
-        name: "Gary Woodland",
-      },
-      {
-        name: "Seamus Power",
-      },
-      {
         name: "Russell Henley",
-      },
-      {
-        name: "Ryan Fox",
-      },
-      {
-        name: "Mito Pereira",
-      },
-      {
-        name: "Abraham Ancer",
-      },
-      {
-        name: "Jason Kokrak",
       },
       {
         name: "Denny McCarthy",
       },
       {
-        name: "Billy Horschel",
-      },
-      {
-        name: "Victor Perez",
-      },
-      {
-        name: "Aaron Wise",
-      },
-      {
-        name: "J.T. Poston",
-      },
-      {
-        name: "Sergio Garcia",
-      },
-      {
-        name: "Adam Hadwin",
-      },
-      {
-        name: "Phil Mickelson",
-      },
-      {
-        name: "Kyoung-Hoon Lee",
-      },
-      {
-        name: "Thomas Pieters",
+        name: "Cameron Davis",
       },
       {
         name: "Harris English",
@@ -191,28 +134,49 @@ export const useLeaderboardStore = defineStore("leaderboard", {
         name: "Keith Mitchell",
       },
       {
-        name: "Harold Varner III",
+        name: "Matt Kuchar",
       },
       {
-        name: "Marc Leishman",
+        name: "Adrian Meronk",
       },
       {
-        name: "Brian Harman",
+        name: "Chris Kirk",
       },
       {
-        name: "Mackenzie Hughes",
+        name: "Gary Woodland",
       },
       {
-        name: "Sepp Straka",
+        name: "Ryan Fox",
       },
       {
-        name: "Joel Dahmen",
+        name: "Phil Mickelson",
       },
       {
-        name: "Christiaan Bezuidenhout",
+        name: "Taylor Montgomery",
       },
       {
-        name: "Robert MacIntyre",
+        name: "Taylor Moore",
+      },
+      {
+        name: "Kurt Kitayama",
+      },
+      {
+        name: "Seamus Power",
+      },
+      {
+        name: "Sergio Garcia",
+      },
+      {
+        name: "Kyoung-Hoon Lee",
+      },
+      {
+        name: "Sebastian Munoz",
+      },
+      {
+        name: "Patrick Rodgers",
+      },
+      {
+        name: "Victor Perez",
       },
       {
         name: "Andrew Putnam",
@@ -221,40 +185,70 @@ export const useLeaderboardStore = defineStore("leaderboard", {
         name: "Tom Hoge",
       },
       {
-        name: "Michael Thorbjornsen",
+        name: "Eric Cole",
+      },
+      {
+        name: "Lucas Herbert",
+      },
+      {
+        name: "Emiliano Grillo",
+      },
+      {
+        name: "J.T. Poston",
       },
       {
         name: "Jordan Smith",
       },
       {
-        name: "Danny Willett",
+        name: "Nick Taylor",
       },
       {
-        name: "Sebastian Munoz",
+        name: "Adam Hadwin",
       },
       {
-        name: "Cameron Tringale",
+        name: "Thomas Pieters",
       },
       {
-        name: "Padraig Harrington",
+        name: "Brian Harman",
+      },
+      {
+        name: "Sepp Straka",
+      },
+      {
+        name: "Justin Suh",
+      },
+      {
+        name: "Pablo Larrazabal",
+      },
+      {
+        name: "Adam Schenk",
+      },
+      {
+        name: "Adam Svensson",
+      },
+      {
+        name: "Abraham Ancer",
+      },
+      {
+        name: "Sam Stevens",
+      },
+      {
+        name: "Alex Noren",
+      },
+      {
+        name: "Billy Horschel",
+      },
+      {
+        name: "Aaron Wise",
+      },
+      {
+        name: "Mackenzie Hughes",
       },
       {
         name: "Francesco Molinari",
       },
       {
-        name: "Patrick Rodgers",
-      },
-      {
         name: "Austin Eckroat",
-      },
-      {
-        name: "Eric Cole",
-      },
-      {
-        name: "Aaron Rai",
-      },
-      {
-        name: "Kevin Streelman",
       },
       {
         name: "Carlos Ortiz",
@@ -263,22 +257,37 @@ export const useLeaderboardStore = defineStore("leaderboard", {
         name: "Gordon Sargent",
       },
       {
-        name: "Martin Kaymer",
+        name: "Taylor Pendrith",
       },
       {
-        name: "Sam Stevens",
+        name: "Hayden Buckley",
+      },
+      {
+        name: "Padraig Harrington",
       },
       {
         name: "Luke List",
       },
       {
-        name: "Kevin Kisner",
+        name: "Romain Langasque",
       },
       {
-        name: "Taylor Pendrith",
+        name: "Michael Kim",
       },
       {
-        name: "Wilco Nienaber",
+        name: "Joel Dahmen",
+      },
+      {
+        name: "Kevin Streelman",
+      },
+      {
+        name: "Scott Stallings",
+      },
+      {
+        name: "Vincent Norrman",
+      },
+      {
+        name: "Michael Thorbjornsen",
       },
       {
         name: "Carson Young",
@@ -287,28 +296,40 @@ export const useLeaderboardStore = defineStore("leaderboard", {
         name: "Nick Hardy",
       },
       {
-        name: "Thirston Lawrence",
-      },
-      {
-        name: "Vincent Norrman",
-      },
-      {
-        name: "Romain Langasque",
-      },
-      {
-        name: "Sam Bennett",
-      },
-      {
         name: "Stewart Cink",
       },
       {
         name: "Dylan Wu",
       },
       {
-        name: "Michael Brennan",
+        name: "Matthieu Pavon",
       },
       {
-        name: "Berry Henson",
+        name: "Davis Thompson",
+      },
+      {
+        name: "Charley Hoffman",
+      },
+      {
+        name: "Wilco Nienaber",
+      },
+      {
+        name: "Thirston Lawrence",
+      },
+      {
+        name: "Sam Bennett",
+      },
+      {
+        name: "Nicolas Echevarria",
+      },
+      {
+        name: "Hank Lebioda",
+      },
+      {
+        name: "Simon Forsstrom",
+      },
+      {
+        name: "Martin Kaymer",
       },
       {
         name: "Ryan Gerard",
@@ -320,19 +341,7 @@ export const useLeaderboardStore = defineStore("leaderboard", {
         name: "Ross Fisher",
       },
       {
-        name: "Matthieu Pavon",
-      },
-      {
-        name: "Davis Thompson",
-      },
-      {
-        name: "Barclay Brown",
-      },
-      {
         name: "Frankie Capan III",
-      },
-      {
-        name: "Nicolas Echevarria",
       },
       {
         name: "Deon Germishuys",
@@ -341,28 +350,58 @@ export const useLeaderboardStore = defineStore("leaderboard", {
         name: "Paul Haley",
       },
       {
-        name: "Karl Vilips",
+        name: "Alejandro Del Rey",
       },
       {
-        name: "Nick Dunlap",
+        name: "Ryan Armour",
       },
       {
-        name: "David Nyfjall",
+        name: "Brent Grant",
+      },
+      {
+        name: "Jacob Solomon",
+      },
+      {
+        name: "Maxwell Moldovan",
       },
       {
         name: "Mac Meissner",
+      },
+      {
+        name: "Patrick Cover",
+      },
+      {
+        name: "Paul Barjon",
+      },
+      {
+        name: "Roger Sloan",
+      },
+      {
+        name: "Bastien Amat",
+      },
+      {
+        name: "Michael Brennan",
+      },
+      {
+        name: "Berry Henson",
+      },
+      {
+        name: "Barclay Brown",
+      },
+      {
+        name: "Karl Vilips",
+      },
+      {
+        name: "Nicholas Dunlap",
+      },
+      {
+        name: "David Nyfjall",
       },
       {
         name: "Yuto Katsuragawa",
       },
       {
         name: "Austen Truslow",
-      },
-      {
-        name: "Alejandro Del Rey",
-      },
-      {
-        name: "Hank Lebioda",
       },
       {
         name: "Ryo Ishikawa",
@@ -377,15 +416,6 @@ export const useLeaderboardStore = defineStore("leaderboard", {
         name: "Brendan Valdes",
       },
       {
-        name: "Patrick Cover",
-      },
-      {
-        name: "Paul Barjon",
-      },
-      {
-        name: "Ryan Armour",
-      },
-      {
         name: "Omar Morales",
       },
       {
@@ -395,19 +425,10 @@ export const useLeaderboardStore = defineStore("leaderboard", {
         name: "Jens Dantorp",
       },
       {
-        name: "Brent Grant",
-      },
-      {
-        name: "Jacob Solomon",
-      },
-      {
         name: "Aldrich Potgieter",
       },
       {
         name: "Andrew Svoboda",
-      },
-      {
-        name: "Roger Sloan",
       },
       {
         name: "Olin Browne",
@@ -419,7 +440,7 @@ export const useLeaderboardStore = defineStore("leaderboard", {
         name: "Kyle Mueller",
       },
       {
-        name: "J.J. Grey",
+        name: "Jonathan James Grey",
       },
       {
         name: "Gunn Charoenkul",
@@ -436,6 +457,24 @@ export const useLeaderboardStore = defineStore("leaderboard", {
       {
         name: "Alexander Yang",
       },
+      {
+        name: "Mateo Fernandez de Oliveira",
+      },
+      {
+        name: "Ben Carr",
+      },
+      {
+        name: "Matthew McClean",
+      },
+      {
+        name: "Jordan Gumberg",
+      },
+      {
+        name: "Preston Summerhays",
+      },
+      {
+        name: "Wenyi Ding",
+      },
     ],
     createdTeams: [],
     eligibleTeams: [],
@@ -449,54 +488,136 @@ export const useLeaderboardStore = defineStore("leaderboard", {
             name: "Scottie Scheffler",
           },
           {
-            name: "Max Homa",
+            name: "Hideki Matsuyama",
           },
           {
-            name: "Tommy Fleetwood",
+            name: "Si Woo Kim",
           },
           {
-            name: "Abraham Ancer",
+            name: "Kurt Kitayama",
           },
           {
-            name: "Danny Willett",
+            name: "Sepp Straka",
           },
           {
-            name: "Cameron Champ",
+            name: "Luke List",
           },
           {
-            name: "K.H. Lee",
+            name: "Dylan Wu",
           },
           {
-            name: "Sam Bennett",
+            name: "Hank Lebioda",
+          },
+          {
+            name: "Nicholas Dunlap",
+          },
+          {
+            name: "Omar Morales",
           },
         ],
       },
       {
-        teamName: "Team Audra",
+        teamName: "Team Audrey",
         players: [
           {
-            name: "Jon Rahm",
+            name: "Rory McIlroy",
           },
           {
-            name: "Corey Conners",
+            name: "Jason Day",
           },
           {
-            name: "Tommy Fleetwood",
+            name: "Tom Kim",
           },
           {
-            name: "Talor Gooch",
+            name: "Phil Mickelson",
+          },
+          {
+            name: "Lucas Herbert",
+          },
+          {
+            name: "Carlos Ortiz",
+          },
+          {
+            name: "Scott Stallings",
+          },
+          {
+            name: "Ross Fisher",
+          },
+          {
+            name: "Patrick Cover",
+          },
+          {
+            name: "David Horsey",
+          },
+        ],
+      },
+      {
+        teamName: "Team Jeff",
+        players: [
+          {
+            name: "Xander Schauffele",
+          },
+          {
+            name: "Justin Rose",
           },
           {
             name: "Mito Pereira",
           },
           {
-            name: "Harris English",
+            name: "Phil Mickelson",
           },
           {
-            name: "Kazuki Higa",
+            name: "Adam Hadwin",
           },
           {
-            name: "Larry Mize",
+            name: "Padraig Harrington",
+          },
+          {
+            name: "Kevin Streelman",
+          },
+          {
+            name: "Hank Lebioda",
+          },
+          {
+            name: "Nicholas Dunlap",
+          },
+          {
+            name: "Omar Morales",
+          },
+        ],
+      },
+      {
+        teamName: "Team Adam",
+        players: [
+          {
+            name: "Jon Rahm",
+          },
+          {
+            name: "Dustin Johnson",
+          },
+          {
+            name: "Cam Davis",
+          },
+          {
+            name: "Taylor Montgomery",
+          },
+          {
+            name: "Abraham Ancer",
+          },
+          {
+            name: "Billy Horschel",
+          },
+          {
+            name: "Carson Young",
+          },
+          {
+            name: "Simon Forsström",
+          },
+          {
+            name: "Roger Sloan",
+          },
+          {
+            name: "Brendan Valdes",
           },
         ],
       },
@@ -504,25 +625,31 @@ export const useLeaderboardStore = defineStore("leaderboard", {
         teamName: "Team Brad",
         players: [
           {
-            name: "Rory Mcilroy",
+            name: "Brooks Koepka",
           },
           {
-            name: "Max Homa",
+            name: "Dustin Johnson",
           },
           {
-            name: "Adam Scott",
+            name: "Denny McCarthy",
           },
           {
-            name: "Séamus Power",
+            name: "Eric Cole",
           },
           {
-            name: "Chris Kirk",
+            name: "Justin Suh",
           },
           {
-            name: "Harris English",
+            name: "Joel Dahmen",
           },
           {
-            name: "Kevin Kisner",
+            name: "Stewart Cink",
+          },
+          {
+            name: "Martin Kaymer",
+          },
+          {
+            name: "Bastien Amat",
           },
           {
             name: "Mateo Fernandez de Oliveira",
@@ -533,33 +660,109 @@ export const useLeaderboardStore = defineStore("leaderboard", {
         teamName: "Team Jason",
         players: [
           {
+            name: "Scottie Scheffler",
+          },
+          {
+            name: "Rickie Fowler",
+          },
+          {
+            name: "Sahith Theegala",
+          },
+          {
+            name: "Andrew Putnam",
+          },
+          {
+            name: "Emiliano Grillo",
+          },
+          {
+            name: "Joel Dahmen",
+          },
+          {
+            name: "Sam Bennett",
+          },
+          {
+            name: "Alejandro del Rey",
+          },
+          {
+            name: "Yuto Katsuragawa",
+          },
+          {
+            name: "Mateo Fernandez de Oliveira",
+          },
+        ],
+      },
+      {
+        teamName: "Team Scott",
+        players: [
+          {
             name: "Cameron Smith",
           },
           {
-            name: "Will Zalatoris",
+            name: "Shane Lowry",
           },
           {
-            name: "Patrick Reed",
+            name: "Keegan Bradley",
           },
           {
-            name: "Talor Gooch",
+            name: "Kurt Kitayama",
+          },
+          {
+            name: "Sepp Straka",
+          },
+          {
+            name: "Aaron Wise",
+          },
+          {
+            name: "Stewart Cink",
+          },
+          {
+            name: "Simon Forsström",
+          },
+          {
+            name: "Berry Henson",
+          },
+          {
+            name: "Jens Dantorp",
+          },
+        ],
+      },
+      {
+        teamName: "Team Max",
+        players: [
+          {
+            name: "Brooks Koepka",
+          },
+          {
+            name: "Dustin Johnson",
+          },
+          {
+            name: "Sahith Theegala",
+          },
+          {
+            name: "Ryan Fox",
+          },
+          {
+            name: "Adam Hadwin",
           },
           {
             name: "Billy Horschel",
           },
           {
-            name: "Cameron Champ",
+            name: "Scott Stallings",
           },
           {
-            name: "Bernhard Langer",
+            name: "Simon Forsström",
           },
           {
-            name: "Vijay Singh",
+            name: "Jonathan James Grey",
+          },
+          {
+            name: "Ben Carr",
           },
         ],
       },
       {
-        teamName: "Team Adam",
+        teamName: "Team Emily",
         players: [
           {
             name: "Scottie Scheffler",
@@ -568,22 +771,28 @@ export const useLeaderboardStore = defineStore("leaderboard", {
             name: "Cameron Young",
           },
           {
-            name: "Tyrrell Hatton",
+            name: "Matt Kuchar",
           },
           {
-            name: "Talor Gooch",
+            name: "Kurt Kitayama",
           },
           {
-            name: "Billy Horschel",
+            name: "Sepp Straka",
           },
           {
-            name: "Kevin Na",
+            name: "Francesco Molinari",
           },
           {
-            name: "Kevin Kisner",
+            name: "Stewart Cink",
           },
           {
-            name: "Larry Mize",
+            name: "Hank Lebioda",
+          },
+          {
+            name: "Roger Sloan",
+          },
+          {
+            name: "Jesse Schutte",
           },
         ],
       },
@@ -594,54 +803,31 @@ export const useLeaderboardStore = defineStore("leaderboard", {
             name: "Scottie Scheffler",
           },
           {
-            name: "Will Zalatoris",
+            name: "Rickie Fowler",
           },
           {
             name: "Min Woo Lee",
           },
           {
-            name: "Abraham Ancer",
+            name: "Taylor Montgomery",
+          },
+          {
+            name: "Sepp Straka",
           },
           {
             name: "Billy Horschel",
           },
           {
-            name: "Cameron Champ",
+            name: "Sam Bennett",
           },
           {
-            name: "Kevin Kisner",
+            name: "Martin Kaymer",
           },
           {
-            name: "Fred Couples",
-          },
-        ],
-      },
-      {
-        teamName: "Team Jeff",
-        players: [
-          {
-            name: "Scottie Scheffler",
+            name: "Nicholas Dunlap",
           },
           {
-            name: "Will Zalatoris",
-          },
-          {
-            name: "Justin Rose",
-          },
-          {
-            name: "Talor Gooch",
-          },
-          {
-            name: "Mito Pereira",
-          },
-          {
-            name: "Cameron Champ",
-          },
-          {
-            name: "Bernhard Langer",
-          },
-          {
-            name: "Fred Couples",
+            name: "David Horsey",
           },
         ],
       },
@@ -649,115 +835,34 @@ export const useLeaderboardStore = defineStore("leaderboard", {
         teamName: "Team Seth",
         players: [
           {
-            name: "Rory Mcilroy",
+            name: "Scottie Scheffler",
           },
           {
-            name: "Sungjae Im",
+            name: "Dustin Johnson",
           },
           {
-            name: "Joaquin Niemann",
+            name: "Si Woo Kim",
           },
           {
-            name: "Abraham Ancer",
-          },
-          {
-            name: "Mito Pereira",
-          },
-          {
-            name: "Adam Svensson",
-          },
-          {
-            name: "K.H. Lee",
-          },
-          {
-            name: "Mateo Fernandez de Oliveira",
-          },
-        ],
-      },
-      {
-        teamName: "Team Audrey",
-        players: [
-          {
-            name: "Rory Mcilroy",
-          },
-          {
-            name: "Max Homa",
-          },
-          {
-            name: "Shane Lowry",
-          },
-          {
-            name: "Louis Oosthuizen",
-          },
-          {
-            name: "Mito Pereira",
-          },
-          {
-            name: "Bubba Watson",
+            name: "Kurt Kitayama",
           },
           {
             name: "Sepp Straka",
           },
           {
-            name: "Vijay Singh",
-          },
-        ],
-      },
-      {
-        teamName: "Team Max",
-        players: [
-          {
-            name: "Jordan Spieth",
+            name: "Billy Horschel",
           },
           {
-            name: "Corey Conners",
+            name: "Stewart Cink",
           },
           {
-            name: "Min Woo Lee",
+            name: "Hank Lebioda",
           },
           {
-            name: "Sahith Theegala",
+            name: "Paul Barjon",
           },
           {
-            name: "Chris Kirk",
-          },
-          {
-            name: "Gordon Sargent",
-          },
-          {
-            name: "Harrison Crowe",
-          },
-          {
-            name: "Adam Svensson",
-          },
-        ],
-      },
-      {
-        teamName: "Team Ross",
-        players: [
-          {
-            name: "Scottie Scheffler",
-          },
-          {
-            name: "Cameron Young",
-          },
-          {
-            name: "Tyrrell Hatton",
-          },
-          {
-            name: "Keith Mitchell",
-          },
-          {
-            name: "Chris Kirk",
-          },
-          {
-            name: "J.T. Poston",
-          },
-          {
-            name: "Scott Stallings",
-          },
-          {
-            name: "Sam Bennett",
+            name: "Mateo Fernandez de Oliveira",
           },
         ],
       },
@@ -770,7 +875,6 @@ export const useLeaderboardStore = defineStore("leaderboard", {
           `https://site.api.espn.com/apis/site/v2/sports/golf/leaderboard?event=${this.eventKey}`
         );
         const data = await response.json();
-
         this.players = data.events[0].competitions[0].competitors;
         this.tournament = data.events[0].tournament;
         this.createTeams();
@@ -780,7 +884,7 @@ export const useLeaderboardStore = defineStore("leaderboard", {
       }
     },
     createTiers() {
-      const size = 14;
+      const size = 15;
 
       while (this.tierPlayers.length > 0)
         this.tierGroups.push(this.tierPlayers.splice(0, size));
@@ -812,6 +916,8 @@ export const useLeaderboardStore = defineStore("leaderboard", {
         } else {
           this.eligibleTeams = [...this.eligibleTeams, newTeam];
         }
+
+        newTeam.players.reverse();
 
         this.createdTeams = [...this.createdTeams, newTeam];
       });
@@ -851,6 +957,8 @@ export const useLeaderboardStore = defineStore("leaderboard", {
             player.athlete?.displayName?.toLowerCase() ===
             item?.name?.toLowerCase()
         );
+
+        console.log(filterPlayer);
 
         if (
           filterPlayer.status?.displayValue === "WD" ||
