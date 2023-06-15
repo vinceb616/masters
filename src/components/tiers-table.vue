@@ -28,7 +28,7 @@
         :key="j"
         class="w-full flex items-center border-b border-r border-l border-slate-300"
       >
-        <div class="flex-1 px-4 py-0.5 bg-white flex align-center">
+        <div class="flex-1 px-2 py-0.5 bg-white flex align-center">
           <span class="text-sm">
             {{ player.name }}
           </span>

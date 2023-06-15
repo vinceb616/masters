@@ -6,7 +6,7 @@
       { 'bg-open-500': event === 'us open' },
     ]"
   >
-    <div class="flex-1 px-4 py-0.5">
+    <div class="flex-1 px-2 py-0.5">
       <span class="text-[9px]"> PLAYER </span>
     </div>
   </div>

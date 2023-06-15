@@ -6,7 +6,7 @@
       </span>
     </div>
     <div
-      class="flex-1 px-4 py-0.5 bg-white flex align-center border-b border-l border-slate-300"
+      class="flex-1 px-2 py-0.5 bg-white flex align-center border-b border-l border-slate-300"
     >
       <span>
         {{ model.teamName }}

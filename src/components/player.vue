@@ -12,13 +12,13 @@
       </span>
     </div>
     <div
-      class="flex-1 px-4 py-0.5 bg-white border-l border-slate-300 whitespace-nowrap text-ellipsis overflow-hidden flex items-center space-x-4"
+      class="flex-1 px-2 py-0.5 bg-white border-b border-l border-slate-300 flex items-center overflow-hidden sm:space-x-2"
       :class="{
         'border-b border-slate-300':
           index !== 7 && index !== 3 && index !== cutIndex,
       }"
     >
-      <span class="flex w-4 h-auto">
+      <span class="hidden sm:flex w-4 h-auto">
         <img
           v-if="model.athlete.flag.href"
           :src="model.athlete?.flag?.href"
@@ -26,7 +26,10 @@
           class="w-full"
         />
       </span>
-      <span :class="{ 'opacity-50': index > 3 }">
+      <span
+        class="overflow-hidden text-ellipsis whitespace-nowrap sm:w-[calc(100%-24px)]"
+        :class="{ 'opacity-50': index > 3 }"
+      >
         {{ model.athlete?.shortName }}
       </span>
     </div>
