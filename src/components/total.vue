@@ -5,10 +5,10 @@
     </div>
     <div
       class="w-[54px] py-0.5 flex justify-center items-center text-masters-200"
-      :class="
-        ({ 'bg-masters-300 border-masters-300': score < 0 },
-        { 'bg-masters-900 border-masters-900': score > -1 || score === 'CUT' })
-      "
+      :class="[
+        { 'bg-masters-300 border-masters-300': score < 0 },
+        { 'bg-masters-900 border-masters-900': score > -1 || score === 'CUT' },
+      ]"
     >
       {{ displayScore }}
     </div>

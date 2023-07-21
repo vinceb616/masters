@@ -20,7 +20,7 @@
     >
       <span class="hidden sm:flex w-4 h-auto">
         <img
-          v-if="model.athlete.flag.href"
+          v-if="model.athlete?.flag.href"
           :src="model.athlete?.flag?.href"
           :alt="model.athlete?.flag?.alt"
           class="w-full"
@@ -45,7 +45,7 @@
         :class="
           ({ 'opacity-50': index > 3 },
           {
-            'text-masters-500':
+            'text-masters-100':
               model.status?.type?.name === 'STATUS_IN_PROGRESS',
           })
         "
@@ -109,14 +109,14 @@
     </div>
     <div
       class="w-[54px] py-0.5 flex justify-center items-center text-masters-200"
-      :class="
-        ({ 'border-t': index === 0 },
+      :class="[
+        { 'border-t': index === 0 },
         { 'border-b': index !== 7 && index !== 3 && index !== cutIndex },
         { 'bg-masters-300 border-masters-300': model.statistics[0]?.value < 0 },
         {
           'bg-masters-900 border-masters-900': model.statistics[0]?.value > -1,
-        })
-      "
+        },
+      ]"
     >
       <span :class="{ 'opacity-50': index > 3 }">
         <template
@@ -152,6 +152,8 @@ const props = defineProps({
     default: null,
   },
 });
+console.log("STATUS");
+console.log(props.model);
 
 const negativeScore = computed(() => {
   if (!props.model.linescores.displayValue) {

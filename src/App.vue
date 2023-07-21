@@ -18,6 +18,13 @@
             class="w-full max-w-[200px] mix-blend-multiply"
           />
         </template>
+        <template v-if="viewsStore.event === 'open championship'">
+          <img
+            alt="The Open Championship"
+            src="./assets/open-championship-logo.png"
+            class="w-full max-w-[200px] mix-blend-multiply"
+          />
+        </template>
       </div>
       <template v-if="viewsStore.activeView === 'tiers'">
         <tiers-table />

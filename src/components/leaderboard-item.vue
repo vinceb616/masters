@@ -14,13 +14,15 @@
     </div>
     <div
       class="w-[54px] py-0.5 flex justify-center items-center border-b text-masters-200"
-      :class="
-        ({ 'bg-masters-300 border-masters-300': model.totalScore < 0 },
+      :class="[
+        {
+          'bg-masters-300 border-masters-300': model.totalScore < 0,
+        },
         {
           'bg-masters-900 border-masters-900':
             model.totalScore > -1 || displayScore === 'CUT',
-        })
-      "
+        },
+      ]"
     >
       <span>
         {{ displayScore }}

@@ -10,7 +10,7 @@
     >
       <span class="hidden sm:flex w-4 h-auto">
         <img
-          v-if="model.athlete.flag.href"
+          v-if="model.athlete?.flag.href"
           :src="model.athlete?.flag?.href"
           :alt="model.athlete?.flag?.alt"
           class="w-full"
@@ -28,7 +28,7 @@
       <span
         class="text-xs"
         :class="{
-          'text-masters-500': model.status?.type?.name === 'STATUS_IN_PROGRESS',
+          'text-masters-100': model.status?.type?.name === 'STATUS_IN_PROGRESS',
         }"
       >
         <template v-if="model.status?.thru || model.status?.thru === 0">
@@ -85,14 +85,14 @@
     </div>
     <div
       class="w-[54px] py-0.5 flex justify-center items-center border-b text-masters-200"
-      :class="
-        ({
+      :class="[
+        {
           'bg-masters-300 border-masters-300': model.statistics[0]?.value < 0,
         },
         {
           'bg-masters-900 border-masters-900': model.statistics[0]?.value > -1,
-        })
-      "
+        },
+      ]"
     >
       <span>
         <template v-if="model.status?.displayValue === 'WD'">

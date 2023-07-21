@@ -41,8 +41,6 @@ const sortedLivePlayers = computed(() => {
     }
   });
 
-  playerList.reverse();
-
   playerList.sort((a, b) =>
     a.statistics[0].value > b.statistics[0].value ? 1 : -1
   );

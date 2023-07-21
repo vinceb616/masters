@@ -1,11 +1,7 @@
 <template>
   <div class="prose">
     <h2
-      class="flex justify-center text-xs font-medium border-t border-b px-4"
-      :class="[
-        { 'text-masters-300 border-masters-900': event === 'masters' },
-        { 'text-open-300 border-open-900': event === 'us open' },
-      ]"
+      class="flex justify-center text-xs font-medium border-t border-b px-4 text-masters-300 border-masters-900"
     >
       Rules
     </h2>
