@@ -1,7 +1,7 @@
 <template>
   <div class="border-l border-slate-300 text-sm mb-8">
     <div class="w-full">
-      <div class="w-full flex items-center bg-masters-500 text-white">
+      <div class="w-full flex items-center bg-tournament-500 text-white">
         <div class="w-[50px] text-center py-0.5">
           <span class="text-[9px]"> POS </span>
         </div>
@@ -55,7 +55,7 @@
   </div>
   <div class="mb-20">
     <h2
-      class="flex justify-center text-masters-300 text-xs font-medium border-t border-masters-900 px-4"
+      class="flex justify-center text-tournament-300 text-xs font-medium border-t border-tournament-900 px-4"
     >
       Leaderboard
     </h2>
@@ -76,9 +76,9 @@
 </template>
 
 <script setup>
-import PlayerAttributes from "./player-attributes.vue";
-import LeaderboardItem from "./leaderboard-item.vue";
-import { useLeaderboardStore } from "../stores/leaderboard";
+import PlayerAttributes from "@/components/shared/player-attributes.vue";
+import LeaderboardItem from "@/components/leaderboard/leaderboard-item.vue";
+import { useLeaderboardStore } from "@/stores/leaderboard";
 
 const leaderboardStore = useLeaderboardStore();
 </script>

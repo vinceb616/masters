@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2
-      class="flex justify-center text-masters-300 text-xs font-medium border-t border-masters-900 px-4"
+      class="flex justify-center text-tournament-300 text-xs font-medium border-t border-tournament-900 px-4"
     >
       Live Leaderboard
     </h2>
@@ -23,9 +23,9 @@
 
 <script setup>
 import { computed } from "vue";
-import PlayerAttributes from "./player-attributes.vue";
-import LiveItem from "./live-item.vue";
-import { useLeaderboardStore } from "../stores/leaderboard";
+import PlayerAttributes from "@/components/shared/player-attributes.vue";
+import LiveItem from "@/components/live/live-item.vue";
+import { useLeaderboardStore } from "@/stores/leaderboard";
 
 const leaderboardStore = useLeaderboardStore();
 
@@ -34,7 +34,10 @@ const sortedLivePlayers = computed(() => {
   let cutPlayers = [];
 
   leaderboardStore.players.forEach((player) => {
-    if (player.status?.displayValue === "WD") {
+    if (
+      player.status?.displayValue === "WD" ||
+      player.status?.displayValue === "CUT"
+    ) {
       cutPlayers = [...cutPlayers, player];
     } else {
       playerList = [...playerList, player];

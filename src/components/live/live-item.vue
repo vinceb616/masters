@@ -1,22 +1,12 @@
 <template>
   <div class="w-full flex items-center">
-    <div
-      class="w-[50px] text-center py-0.5 bg-white border-l border-slate-300"
-      :class="{
-        'border-b border-slate-300':
-          index !== 7 && index !== 3 && index !== cutIndex,
-      }"
-    >
-      <span class="text-xs" :class="{ 'opacity-50': index > 3 }">
+    <div class="w-[50px] text-center py-0.5 bg-white border-b border-slate-300">
+      <span class="text-xs">
         {{ model.status?.position?.displayName }}
       </span>
     </div>
     <div
       class="flex-1 px-2 py-0.5 bg-white border-b border-l border-slate-300 flex items-center overflow-hidden sm:space-x-2"
-      :class="{
-        'border-b border-slate-300':
-          index !== 7 && index !== 3 && index !== cutIndex,
-      }"
     >
       <span class="hidden sm:flex w-4 h-auto">
         <img
@@ -28,27 +18,19 @@
       </span>
       <span
         class="overflow-hidden text-ellipsis whitespace-nowrap sm:w-[calc(100%-24px)]"
-        :class="{ 'opacity-50': index > 3 }"
       >
         {{ model.athlete?.shortName }}
       </span>
     </div>
     <div
-      class="w-[50px] text-center py-0.5 bg-white border-l border-slate-300"
-      :class="{
-        'border-b border-slate-300':
-          index !== 7 && index !== 3 && index !== cutIndex,
-      }"
+      class="w-[50px] text-center py-0.5 bg-white border-l border-b border-slate-300"
     >
       <span
         class="text-xs"
-        :class="
-          ({ 'opacity-50': index > 3 },
-          {
-            'text-masters-100':
-              model.status?.type?.name === 'STATUS_IN_PROGRESS',
-          })
-        "
+        :class="{
+          'text-tournament-100':
+            model.status?.type?.name === 'STATUS_IN_PROGRESS',
+        }"
       >
         <template v-if="model.status?.thru || model.status?.thru === 0">
           {{ model.status?.thru }}
@@ -57,24 +39,19 @@
       </span>
     </div>
     <div
-      class="w-[50px] text-center py-0.5 bg-white border-l border-slate-300"
-      :class="{
-        'border-b border-slate-300':
-          index !== 7 && index !== 3 && index !== cutIndex,
-      }"
+      class="w-[50px] text-center py-0.5 bg-white border-l border-b border-slate-300"
     >
       <span
         class="text-xs"
         :class="
-          ({ 'opacity-50': index > 3 },
-          {
-            'text-masters-300':
+          ({
+            'text-tournament-300':
               negativeScore &&
               model.status?.displayValue !== 'WD' &&
               model.status?.displayValue !== 'CUT',
           },
           {
-            'text-masters-500':
+            'text-tournament-500':
               positiveScore &&
               model.status?.displayValue !== 'WD' &&
               model.status?.displayValue !== 'CUT',
@@ -108,17 +85,19 @@
       </span>
     </div>
     <div
-      class="w-[54px] py-0.5 flex justify-center items-center text-masters-200"
+      class="w-[54px] py-0.5 flex justify-center items-center border-b text-tournament-200"
       :class="[
-        { 'border-t': index === 0 },
-        { 'border-b': index !== 7 && index !== 3 && index !== cutIndex },
-        { 'bg-masters-300 border-masters-300': model.statistics[0]?.value < 0 },
         {
-          'bg-masters-900 border-masters-900': model.statistics[0]?.value > -1,
+          'bg-tournament-300 border-tournament-300':
+            model.statistics[0]?.value < 0,
+        },
+        {
+          'bg-tournament-900 border-tournament-900':
+            model.statistics[0]?.value > -1,
         },
       ]"
     >
-      <span :class="{ 'opacity-50': index > 3 }">
+      <span>
         <template
           v-if="
             model.status?.displayValue === 'WD' ||
@@ -138,22 +117,13 @@
 <script setup>
 import { computed } from "vue";
 import { DateTime } from "luxon";
+
 const props = defineProps({
   model: {
     type: Object,
     default: () => ({}),
   },
-  index: {
-    type: Number,
-    default: null,
-  },
-  cutIndex: {
-    type: Number,
-    default: null,
-  },
 });
-console.log("STATUS");
-console.log(props.model);
 
 const negativeScore = computed(() => {
   if (!props.model.linescores.displayValue) {
@@ -162,7 +132,7 @@ const negativeScore = computed(() => {
   const letter =
     props.model.linescores[
       props.model.linescores.length - 1
-    ]?.displayValue?.charAt(0);
+    ]?.displayValue.charAt(0);
 
   if (
     props.model.linescores[props.model.linescores.length - 1]?.displayValue !==
@@ -202,5 +172,3 @@ const teeTime = computed(() => {
   }
 });
 </script>
-
-<style lang="scss" scoped></style>

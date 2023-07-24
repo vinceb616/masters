@@ -11,6 +11,13 @@
             class="w-full max-w-[200px]"
           />
         </template>
+        <template v-if="viewsStore.event === 'pga championship'">
+          <img
+            alt="PGA Championship"
+            src="./assets/pga-championship-logo.png"
+            class="w-full max-w-[200px] mix-blend-multiply"
+          />
+        </template>
         <template v-if="viewsStore.event === 'us open'">
           <img
             alt="Us Open"
@@ -48,14 +55,14 @@
 
 <script setup>
 import "./assets/index.css";
-import { useLeaderboardStore } from "./stores/leaderboard";
-import { useViewsStore } from "./stores/views";
-import LeaderboardTable from "./components/leaderboard.vue";
-import PlayersTable from "./components/table.vue";
-import StickyNav from "./components/sticky-nav.vue";
-import Live from "./components/live.vue";
-import Rules from "./components/rules.vue";
-import TiersTable from "./components/tiers-table.vue";
+import { useLeaderboardStore } from "@/stores/leaderboard";
+import { useViewsStore } from "@/stores/views";
+import LeaderboardTable from "@/components/leaderboard/leaderboard.vue";
+import PlayersTable from "@/components/teams/table.vue";
+import StickyNav from "@/components/sticky-nav.vue";
+import Live from "@/components/live/live.vue";
+import Rules from "@/components/rules.vue";
+import TiersTable from "@/components/tiers/tiers-table.vue";
 
 const leaderboard = useLeaderboardStore();
 const viewsStore = useViewsStore();

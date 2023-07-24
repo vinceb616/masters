@@ -6,7 +6,7 @@
       class="w-full"
     >
       <h2
-        class="flex justify-center text-masters-900 text-xs font-medium border-t border-masters-900 px-4"
+        class="flex justify-center text-tournament-900 text-xs font-medium border-t border-tournament-900 px-4"
       >
         {{ team.teamName }}
       </h2>
@@ -19,12 +19,14 @@
           v-for="(item, index) in team.players"
           :key="index"
           class="w-full"
-          :class="{ 'border-b border-masters-400': index === 3 }"
+          :class="{ 'border-b border-tournament-400': index === 3 }"
         >
           <div
             class="w-full"
             :class="{
-              'border-b border-masters-300': index === cutLine(team.players),
+              'border-b border-tournament-300':
+                index === cutLine(team.players) &&
+                leaderboardStore.tournament.numberOfRounds < 3,
             }"
           >
             <player
@@ -44,11 +46,10 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import PlayerAttributes from "./player-attributes.vue";
-import Player from "./player.vue";
-import Total from "./total.vue";
-import { useLeaderboardStore } from "../stores/leaderboard";
+import Player from "@/components/teams/player.vue";
+import PlayerAttributes from "@/components/shared/player-attributes.vue";
+import Total from "@/components/teams/total.vue";
+import { useLeaderboardStore } from "@/stores/leaderboard";
 
 const leaderboardStore = useLeaderboardStore();
 

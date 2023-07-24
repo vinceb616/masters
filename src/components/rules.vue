@@ -1,7 +1,7 @@
 <template>
   <div class="prose">
     <h2
-      class="flex justify-center text-xs font-medium border-t border-b px-4 text-masters-300 border-masters-900"
+      class="flex justify-center text-xs font-medium border-t border-b px-4 text-tournament-300 border-tournament-900"
     >
       Rules
     </h2>

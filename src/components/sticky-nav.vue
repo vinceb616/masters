@@ -5,7 +5,7 @@
     <template v-if="!viewsStore.isLive">
       <button
         v-if="viewsStore.activeView !== 'tiers'"
-        class="flex-1 px-4 py-2 text-white flex items-center justify-center bg-masters-900"
+        class="flex-1 px-4 py-3 text-white flex items-center justify-center bg-tournament-900"
         @click="viewsStore.toggleView('tiers')"
       >
         <span>Player Tiers</span>
@@ -14,14 +14,14 @@
     <template v-else>
       <button
         v-if="viewsStore.activeView !== 'teams'"
-        class="flex-1 px-4 py-2 text-white flex items-center justify-center bg-masters-900"
+        class="flex-1 px-4 py-3 text-white flex items-center justify-center bg-tournament-900"
         @click="viewsStore.toggleView('teams')"
       >
         <span>Teams</span>
       </button>
       <button
         v-if="viewsStore.activeView !== 'live'"
-        class="flex-1 px-4 py-2 text-white flex items-center justify-center bg-masters-900"
+        class="flex-1 px-4 py-3 text-white flex items-center justify-center bg-tournament-900"
         @click="viewsStore.toggleView('live')"
       >
         <span>Live</span>
@@ -29,7 +29,7 @@
     </template>
     <button
       v-if="viewsStore.activeView !== 'rules'"
-      class="flex-1 px-4 py-2 text-white flex items-center justify-center bg-masters-900"
+      class="flex-1 px-4 py-3 text-white flex items-center justify-center bg-tournament-900"
       @click="viewsStore.toggleView('rules')"
     >
       <span>Rules</span>
@@ -38,7 +38,7 @@
 </template>
 
 <script setup>
-import { useViewsStore } from "../stores/views";
+import { useViewsStore } from "@/stores/views";
 
 const viewsStore = useViewsStore();
 const event = useViewsStore().event;

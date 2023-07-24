@@ -13,13 +13,13 @@
       </span>
     </div>
     <div
-      class="w-[54px] py-0.5 flex justify-center items-center border-b text-masters-200"
+      class="w-[54px] py-0.5 flex justify-center items-center border-b text-tournament-200"
       :class="[
         {
-          'bg-masters-300 border-masters-300': model.totalScore < 0,
+          'bg-tournament-300 border-tournament-300': model.totalScore < 0,
         },
         {
-          'bg-masters-900 border-masters-900':
+          'bg-tournament-900 border-tournament-900':
             model.totalScore > -1 || displayScore === 'CUT',
         },
       ]"
@@ -33,7 +33,7 @@
 
 <script setup>
 import { computed } from "vue";
-import { useLeaderboardStore } from "../stores/leaderboard";
+import { useLeaderboardStore } from "@/stores/leaderboard";
 
 const leaderboardStore = useLeaderboardStore();
 

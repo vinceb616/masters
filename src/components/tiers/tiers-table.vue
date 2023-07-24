@@ -308,12 +308,12 @@
         <input
           type="submit"
           value="Submit"
-          class="px-4 py-2 w-full bg-masters-300 text-white rounded cursor-pointer hover:bg-masters-500 transition-all ease-in-out duration-300"
+          class="px-4 py-2 w-full bg-tournament-300 text-white rounded cursor-pointer hover:bg-tournament-500 transition-all ease-in-out duration-300"
         />
       </div>
     </form>
   </div>
-  <!-- <div class="space-y-8">
+  <div class="space-y-8">
     <div v-for="(item, index) in leaderboardStore.tierPlayers" :key="index">
       # - {{ index }}
     </div>
@@ -323,7 +323,7 @@
       class="w-full"
     >
       <h2
-        class="flex justify-center text-xs font-medium border-t px-4 text-masters-900 border-masters-900"
+        class="flex justify-center text-xs font-medium border-t px-4 text-tournament-900 border-tournament-900"
       >
         Tier {{ index + 1 }}
       </h2>
@@ -345,12 +345,12 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 </template>
 
 <script setup>
-import TierAttributes from "./tier-attributes.vue";
-import { useLeaderboardStore } from "../stores/leaderboard";
+import TierAttributes from "@/components/tiers/tier-attributes.vue";
+import { useLeaderboardStore } from "@/stores/leaderboard";
 import { useViewsStore } from "@/stores/views";
 
 const leaderboardStore = useLeaderboardStore();
@@ -370,7 +370,7 @@ const event = useViewsStore().event;
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  background-image: url(../assets/chevron-down.svg);
+  background-image: url(../../assets/chevron-down.svg);
   background-size: 24px 24px;
   background-position: center center;
   background-repeat: no-repeat;

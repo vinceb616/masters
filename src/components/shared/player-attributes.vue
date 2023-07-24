@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full flex items-center bg-masters-500 text-white">
+  <div class="w-full flex items-center bg-tournament-500 text-white">
     <div class="w-[50px] text-center py-0.5">
       <span class="text-[9px]"> POS </span>
     </div>
@@ -26,5 +26,3 @@ const props = defineProps({
   },
 });
 </script>
-
-<style lang="scss" scoped></style>
