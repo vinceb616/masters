@@ -162,26 +162,33 @@ module.exports = {
       fuchsia: colors.fuchsia,
       pink: colors.pink,
       rose: colors.rose,
-      mastersA: {
+      masters: {
         900: "#006747",
         500: "#009B77",
         400: "#EFED00",
-        300: "#ba0c2f",
-        200: "#ffffff",
+      },
+      pga: {
+        900: "#001F57",
+        500: "#18223C",
+        400: "#FFBA00",
       },
       open: {
         900: "#093B60",
         500: "#3a6180",
         400: "#FFD400",
-        300: "#D02030",
-        200: "#ffffff",
       },
-      masters: {
+      britishOpen: {
         900: "#093B60",
-        500: "#3a6180",
-        400: "#FFD400",
+        500: "#18223C",
+        400: "#FFBA00",
+      },
+      tournament: {
+        900: "#006747",
+        500: "#009B77",
+        400: "#EFED00",
         300: "#D02030",
         200: "#ffffff",
+        100: "#009B77",
       },
     }),
     columns: {
