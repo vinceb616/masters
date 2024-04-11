@@ -91,18 +91,18 @@
         </template>
         <template
           v-else-if="
-            model.linescores[model.linescores.length - 1]?.displayValue
-          "
-        >
-          {{ model.linescores[model.linescores.length - 1]?.displayValue }}
-        </template>
-        <template
-          v-else-if="
             model.status?.type?.name === 'STATUS_SCHEDULED' &&
             model.status?.teeTime
           "
         >
           <span class="text-[10px]">{{ teeTime }}</span>
+        </template>
+        <template
+          v-else-if="
+            model.linescores[model.linescores.length - 2]?.displayValue
+          "
+        >
+          {{ model.linescores[model.linescores.length - 2]?.displayValue }}
         </template>
         <template v-else> - </template>
       </span>
