@@ -8,7 +8,8 @@
     <div
       class="flex-1 px-2 py-0.5 bg-white border-b border-l border-slate-300 flex items-center overflow-hidden sm:space-x-2"
     >
-      <span class="hidden sm:flex w-4 h-auto">
+      <span v-if="showPlayerId"> {{ model.athlete?.id }}</span>
+      <span v-else class="hidden sm:flex w-4 h-auto">
         <img
           v-if="model.athlete?.flag.href"
           :src="model.athlete?.flag?.href"
@@ -122,6 +123,10 @@ const props = defineProps({
   model: {
     type: Object,
     default: () => ({}),
+  },
+  showPlayerId: {
+    type: Boolean,
+    default: false,
   },
 });
 

@@ -19,7 +19,10 @@
     "vue": "^3.2.13"
   },
   "devDependencies": {
+    "@emailjs/browser": "^4.1.0",
     "@vue/cli-service": "~5.0.0",
+    "node-sass": "^9.0.0",
+    "sass-loader": "^14.1.0",
     "vue-cli-plugin-tailwind": "~3.0.0"
   },
   "browserslist": [

@@ -156,8 +156,6 @@ const props = defineProps({
     default: null,
   },
 });
-console.log("STATUS");
-console.log(props.model);
 
 const negativeScore = computed(() => {
   if (!props.model.linescores.displayValue) {

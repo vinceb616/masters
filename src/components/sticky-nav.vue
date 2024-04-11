@@ -8,7 +8,7 @@
         class="flex-1 px-4 py-3 text-white flex items-center justify-center bg-tournament-900"
         @click="viewsStore.toggleView('tiers')"
       >
-        <span>Player Tiers</span>
+        <span>Signup Form</span>
       </button>
     </template>
     <template v-else>

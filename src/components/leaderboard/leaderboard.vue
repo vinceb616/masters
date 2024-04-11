@@ -20,7 +20,7 @@
         <div
           class="flex-1 px-2 py-0.5 bg-white flex align-center border-b border-l border-slate-300"
         >
-          <span> $240 </span>
+          <span> $200 </span>
         </div>
       </div>
     </div>

@@ -7,7 +7,10 @@
     </h2>
 
     <ul class="list-disc pl-6 py-6 space-y-2">
-      <li>$20 to play. 1st place team wins the pot</li>
+      <li>
+        $20 to play. Payouts vary based on the amount of team entries.
+        Expectation is to payout 1st-3rd place
+      </li>
       <li>Pick one player from each tier</li>
       <li>Top 4 player rankings contribute to a team score</li>
       <li>Team must have 4 players make the cut to be eligible to win</li>

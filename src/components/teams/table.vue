@@ -54,10 +54,6 @@ import { useLeaderboardStore } from "@/stores/leaderboard";
 const leaderboardStore = useLeaderboardStore();
 
 const cutLine = (players) => {
-  console.log(players);
-  players.forEach((item) => {
-    console.log(item.athlete.displayName);
-  });
   const cutIndex = players.findIndex(
     (player) =>
       player.statistics[0]?.displayValue > leaderboardStore.tournament.cutScore

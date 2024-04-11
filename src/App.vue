@@ -34,10 +34,12 @@
         </template>
       </div>
       <template v-if="viewsStore.activeView === 'tiers'">
-        <tiers-table />
+        <teams-form />
+        <!-- <tiers-table /> -->
       </template>
       <template v-else>
         <template v-if="viewsStore.activeView === 'teams'">
+          <!-- <player-lookup /> -->
           <leaderboard-table />
           <players-table />
         </template>
@@ -63,6 +65,8 @@ import StickyNav from "@/components/sticky-nav.vue";
 import Live from "@/components/live/live.vue";
 import Rules from "@/components/rules.vue";
 import TiersTable from "@/components/tiers/tiers-table.vue";
+import TeamsForm from "@/components/tiers/teams-form.vue";
+import PlayerLookup from "@/components/teams/lookup.vue";
 
 const leaderboard = useLeaderboardStore();
 const viewsStore = useViewsStore();

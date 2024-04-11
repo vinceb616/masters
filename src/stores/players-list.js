@@ -4,1035 +4,502 @@ export const usePlayersListStore = defineStore("playersListStore", {
   state: () => ({
     teams: [
       {
-        teamName: "Team Vince*",
+        teamName: "Vince",
         players: [
           {
-            name: "Scottie Scheffler",
+            id: "9478",
           },
           {
-            name: "Dustin Johnson",
+            id: "5539",
           },
           {
-            name: "Corey Conners",
+            id: "8973",
           },
           {
-            name: "Sepp Straka",
+            id: "4419142",
           },
           {
-            name: "Tom Hoge",
+            id: "3449",
           },
           {
-            name: "Lee Hodges",
+            id: "10505",
           },
           {
-            name: "Rikuya Hoshino",
+            id: "1097",
           },
           {
-            name: "Thriston Lawrence",
-          },
-          {
-            name: "Trey Mullinax",
-          },
-          {
-            name: "Oliver Wilson",
+            id: "5462",
           },
         ],
       },
       {
-        teamName: "Team Adam*",
+        teamName: "Adam",
         players: [
           {
-            name: "Rory McIlroy",
+            id: "9478",
           },
           {
-            name: "Dustin Johnson",
+            id: "4848",
           },
           {
-            name: "Corey Conners",
+            id: "4587",
           },
           {
-            name: "Phil Mickelson",
+            id: "9938",
           },
           {
-            name: "Billy Horschel",
+            id: "3702",
           },
           {
-            name: "Abraham Ancer",
+            id: "308",
           },
           {
-            name: "Alex Fitzpatrick",
+            id: "4832046",
           },
           {
-            name: "Stewart Cink",
-          },
-          {
-            name: "Marc Warren",
-          },
-          {
-            name: "Connor McKinney",
+            id: "11395",
           },
         ],
       },
       {
-        teamName: "Team Scott*",
+        teamName: "Max",
         players: [
           {
-            name: "Cameron Smith",
+            id: "10140",
           },
           {
-            name: "Cameron Young",
+            id: "11119",
           },
           {
-            name: "Adam Scott",
+            id: "1225",
           },
           {
-            name: "Nicolai Højgaard",
+            id: "11382",
           },
           {
-            name: "Christiaan Bezuidenhout",
+            id: "10839",
           },
           {
-            name: "Abraham Ancer",
+            id: "308",
           },
           {
-            name: "David Lingmerth",
+            id: "10863",
           },
           {
-            name: "Jazz Janewattananond",
-          },
-          {
-            name: "Marc Warren",
-          },
-          {
-            name: "Hiroshi Iwata",
+            id: "5462",
           },
         ],
       },
       {
-        teamName: "Team Marek*",
+        teamName: "Jeff",
         players: [
           {
-            name: "Rory McIlroy",
+            id: "9478",
           },
           {
-            name: "Min Woo Lee",
+            id: "10980",
           },
           {
-            name: "Denny McCarthy",
+            id: "5579",
           },
           {
-            name: "Gary Woodland",
+            id: "158",
           },
           {
-            name: "Ewen Ferguson",
+            id: "3449",
           },
           {
-            name: "Yannik Paul",
+            id: "10664",
           },
           {
-            name: "Joost Luiten",
+            id: "1059",
           },
           {
-            name: "Marcel Siem",
-          },
-          {
-            name: "Christo Lamprecht",
-          },
-          {
-            name: "Hiroshi Iwata",
+            id: "91",
           },
         ],
       },
       {
-        teamName: "Team Audra*",
+        teamName: "Bobby",
         players: [
           {
-            name: "Scottie Scheffler",
+            id: "9478",
           },
           {
-            name: "Justin Thomas",
+            id: "11119",
           },
           {
-            name: "Jason Day",
+            id: "7081",
           },
           {
-            name: "Harris English",
+            id: "4419142",
           },
           {
-            name: "Victor Perez",
+            id: "3702",
           },
           {
-            name: "Francesco Molinari",
+            id: "5882",
           },
           {
-            name: "Matthew Southgate",
+            id: "10863",
           },
           {
-            name: "Ben Griffin",
-          },
-          {
-            name: "Zack Fischer",
-          },
-          {
-            name: "Mateo Fernandez de Oliveira",
+            id: "11395",
           },
         ],
       },
       {
-        teamName: "Team Bobby",
+        teamName: "Emily",
         players: [
           {
-            name: "Collin Morikawa",
+            id: "10140",
           },
           {
-            name: "Min Woo Lee",
+            id: "9877",
           },
           {
-            name: "Sungjae Im",
+            id: "8973",
           },
           {
-            name: "Kurt Kitayama",
+            id: "10054",
           },
           {
-            name: "Christiaan Bezuidenhout",
+            id: "3702",
           },
           {
-            name: "K.H. Lee",
+            id: "10372",
           },
           {
-            name: "Rikuya Hoshino",
+            id: "5692",
           },
           {
-            name: "Seungsu Han",
-          },
-          {
-            name: "Taiga Semikawa",
-          },
-          {
-            name: "Hiroshi Iwata",
+            id: "4304",
           },
         ],
       },
       {
-        teamName: "Team Jason*",
+        teamName: "Scott",
         players: [
           {
-            name: "Scottie Scheffler",
+            id: "4364873",
           },
           {
-            name: "Dustin Johnson",
+            id: "5539",
           },
           {
-            name: "Denny McCarthy",
+            id: "4425906",
           },
           {
-            name: "Emiliano Grillo",
+            id: "4410932",
           },
           {
-            name: "Billy Horschel",
+            id: "10364",
           },
           {
-            name: "Lee Hodges",
+            id: "10505",
           },
           {
-            name: "Alex Fitzpatrick",
+            id: "3550",
           },
           {
-            name: "Zach Johnson",
-          },
-          {
-            name: "Nacho Elvira",
-          },
-          {
-            name: "Connor McKinney",
+            id: "5462",
           },
         ],
       },
       {
-        teamName: "Team Audrey*",
+        teamName: "Jason",
         players: [
           {
-            name: "Rory McIlroy",
+            id: "9478",
           },
           {
-            name: "Tom Kim",
+            id: "3448",
           },
           {
-            name: "Russell Henley",
+            id: "4425906",
           },
           {
-            name: "Sepp Straka",
+            id: "10054",
           },
           {
-            name: "Alex Noren",
+            id: "6937",
           },
           {
-            name: "K.H. Lee",
+            id: "4425898",
           },
           {
-            name: "Guido Migliozzi",
+            id: "676",
           },
           {
-            name: "Jazz Janewattananond",
-          },
-          {
-            name: "Hurly Long",
-          },
-          {
-            name: "Darren Clarke",
+            id: "11000",
           },
         ],
       },
       {
-        teamName: "Team Jeff*",
+        teamName: "Seth",
         players: [
           {
-            name: "Rory McIlroy",
+            id: "9478",
           },
           {
-            name: "Cameron Young",
+            id: "11119",
           },
           {
-            name: "Adam Scott",
+            id: "4587",
           },
           {
-            name: "Gary Woodland",
+            id: "9938",
           },
           {
-            name: "Christiaan Bezuidenhout",
+            id: "3702",
           },
           {
-            name: "Abraham Ancer",
+            id: "9843",
           },
           {
-            name: "Danny Willett",
+            id: "4832046",
           },
           {
-            name: "Stewart Cink",
-          },
-          {
-            name: "Marc Warren",
-          },
-          {
-            name: "Harrison Crowe",
+            id: "5462",
           },
         ],
       },
       {
-        teamName: "Team RJ",
+        teamName: "Mackenzie",
         players: [
           {
-            name: "Cameron Smith",
+            id: "6798",
           },
           {
-            name: "Tony Finau",
+            id: "11119",
           },
           {
-            name: "Sahith Theegala",
+            id: "4425906",
           },
           {
-            name: "Phil Mickelson",
+            id: "11382",
           },
           {
-            name: "Billy Horschel",
+            id: "8961",
           },
           {
-            name: "Henrik Stenson",
+            id: "308",
           },
           {
-            name: "Alex Fitzpatrick",
+            id: "676",
           },
           {
-            name: "Charl Schwartzel",
-          },
-          {
-            name: "Ernie Els",
-          },
-          {
-            name: "John Daly",
+            id: "4412531",
           },
         ],
       },
       {
-        teamName: "Team Brad",
+        teamName: "RJ",
         players: [
           {
-            name: "Rory McIlroy",
+            id: "9478",
           },
           {
-            name: "Dustin Johnson",
+            id: "9131",
           },
           {
-            name: "Denny McCarthy",
+            id: "8973",
           },
           {
-            name: "Gary Woodland",
+            id: "4602673",
           },
           {
-            name: "Billy Horschel",
+            id: "4513",
           },
           {
-            name: "Francesco Molinari",
+            id: "308",
           },
           {
-            name: "Danny Willett",
+            id: "3550",
           },
           {
-            name: "Zach Johnson",
-          },
-          {
-            name: "Ernie Els",
-          },
-          {
-            name: "John Daly",
+            id: "392",
           },
         ],
       },
       {
-        teamName: "Team Max*",
+        teamName: "M.Kaiser",
         players: [
           {
-            name: "Scottie Scheffler",
+            id: "9478",
           },
           {
-            name: "Dustin Johnson",
+            id: "11119",
           },
           {
-            name: "Sungjae Im",
+            id: "4425906",
           },
           {
-            name: "Nicolai Højgaard",
+            id: "9938",
           },
           {
-            name: "Alexander Björk",
+            id: "3449",
           },
           {
-            name: "K.H. Lee",
+            id: "10372",
           },
           {
-            name: "Danny Willett",
+            id: "1097",
           },
           {
-            name: "Thriston Lawrence",
-          },
-          {
-            name: "Zack Fischer",
-          },
-          {
-            name: "Kyle Barker",
+            id: "392",
           },
         ],
       },
       {
-        teamName: "Team Ross*",
+        teamName: "Joe K",
         players: [
           {
-            name: "Scottie Scheffler",
+            id: "9478",
           },
           {
-            name: "Cameron Young",
+            id: "2230",
           },
           {
-            name: "Sahith Theegala",
+            id: "4587",
           },
           {
-            name: "J.T. Poston",
+            id: "9938",
           },
           {
-            name: "Jordan Smith",
+            id: "3702",
           },
           {
-            name: "Michael Kim",
+            id: "4425898",
           },
           {
-            name: "Richie Ramsay",
+            id: "10863",
           },
           {
-            name: "Scott Stallings",
-          },
-          {
-            name: "Trey Mullinax",
-          },
-          {
-            name: "Darren Clarke",
+            id: "5462",
           },
         ],
       },
       {
-        teamName: "Team Seth*",
+        teamName: "Brad",
         players: [
           {
-            name: "Collin Morikawa",
+            id: "9478",
           },
           {
-            name: "Max Homa",
+            id: "11119",
           },
           {
-            name: "Sungjae Im",
+            id: "8973",
           },
           {
-            name: "Kurt Kitayama",
+            id: "4602673",
           },
           {
-            name: "Tom Hoge",
+            id: "3792",
           },
           {
-            name: "Abraham Ancer",
+            id: "4425898",
           },
           {
-            name: "Danny Willett",
+            id: "5692",
           },
           {
-            name: "Charl Schwartzel",
-          },
-          {
-            name: "Trey Mullinax",
-          },
-          {
-            name: "Mateo Fernandez de Oliveira",
-          },
-        ],
-      },
-      {
-        teamName: "Team Matt",
-        players: [
-          {
-            name: "Scottie Scheffler",
-          },
-          {
-            name: "Tom Kim",
-          },
-          {
-            name: "Corey Conners",
-          },
-          {
-            name: "Sepp Straka",
-          },
-          {
-            name: "Rasmus Højgaard",
-          },
-          {
-            name: "K.H. Lee",
-          },
-          {
-            name: "Adrian Otaegui",
-          },
-          {
-            name: "Jazz Janewattananond",
-          },
-          {
-            name: "Hurly Long",
-          },
-          {
-            name: "Oliver Farr",
-          },
-        ],
-      },
-      {
-        teamName: "Team Emily",
-        players: [
-          {
-            name: "Jon Rahm",
-          },
-          {
-            name: "Wyndham Clark",
-          },
-          {
-            name: "Sungjae Im",
-          },
-          {
-            name: "Branden Grace",
-          },
-          {
-            name: "Matthew Jordan",
-          },
-          {
-            name: "Andrew Putnam",
-          },
-          {
-            name: "Joost Luiten",
-          },
-          {
-            name: "Stewart Cink",
-          },
-          {
-            name: "Hurly Long",
-          },
-          {
-            name: "Kyle Barker",
+            id: "11395",
           },
         ],
       },
     ],
     tournamentPlayers: [
-      {
-        name: "Scottie Scheffler",
-      },
-      {
-        name: "Rory McIlroy",
-      },
-      {
-        name: "Jon Rahm",
-      },
-      {
-        name: "Cameron Smith",
-      },
-      {
-        name: "Viktor Hovland",
-      },
-      {
-        name: "Brooks Koepka",
-      },
-      {
-        name: "Xander Schauffele",
-      },
-      {
-        name: "Tyrrell Hatton",
-      },
-      {
-        name: "Tommy Fleetwood",
-      },
-      {
-        name: "Patrick Cantlay",
-      },
-      {
-        name: "Rickie Fowler",
-      },
-      {
-        name: "Collin Morikawa",
-      },
-      {
-        name: "Shane Lowry",
-      },
-      {
-        name: "Matthew Fitzpatrick",
-      },
-      {
-        name: "Jordan Spieth",
-      },
-      {
-        name: "Dustin Johnson",
-      },
-      {
-        name: "Joohyung Kim",
-      },
-      {
-        name: "Wyndham Clark",
-      },
-      {
-        name: "Tony Finau",
-      },
-      {
-        name: "Max Homa",
-      },
-      {
-        name: "Cameron Young",
-      },
-      {
-        name: "Justin Rose",
-      },
-      {
-        name: "Sam Burns",
-      },
-      {
-        name: "Min Woo Lee",
-      },
-      {
-        name: "Robert MacIntyre",
-      },
-      {
-        name: "Justin Thomas",
-      },
-      {
-        name: "Bryson DeChambeau",
-      },
-      {
-        name: "Talor Gooch",
-      },
-      {
-        name: "Patrick Reed",
-      },
-      {
-        name: "Hideki Matsuyama",
-      },
-      {
-        name: "Corey Conners",
-      },
-      {
-        name: "Adam Scott",
-      },
-      {
-        name: "Sungjae Im",
-      },
-      {
-        name: "Ryan Fox",
-      },
-      {
-        name: "Russell Henley",
-      },
-      {
-        name: "Jason Day",
-      },
-      {
-        name: "Keegan Bradley",
-      },
-      {
-        name: "Brian Harman",
-      },
-      {
-        name: "Denny McCarthy",
-      },
-      {
-        name: "Si Woo Kim",
-      },
-      {
-        name: "Louis Oosthuizen",
-      },
-      {
-        name: "Padraig Harrington",
-      },
-      {
-        name: "Joaquin Niemann",
-      },
-      {
-        name: "Byeong Hun An",
-      },
-      {
-        name: "Sahith Theegala",
-      },
-      {
-        name: "Nicolai Hojgaard",
-      },
-      {
-        name: "Harris English",
-      },
-      {
-        name: "Branden Grace",
-      },
-      {
-        name: "Sepp Straka",
-      },
-      {
-        name: "Lucas Herbert",
-      },
-      {
-        name: "Kurt Kitayama",
-      },
-      {
-        name: "J.T. Poston",
-      },
-      {
-        name: "Gary Woodland",
-      },
-      {
-        name: "Adrian Meronk",
-      },
-      {
-        name: "Thomas Pieters",
-      },
-      {
-        name: "Thomas Detry",
-      },
-      {
-        name: "Seamus Power",
-      },
-      {
-        name: "Emiliano Grillo",
-      },
-      {
-        name: "Chris Kirk",
-      },
-      {
-        name: "Phil Mickelson",
-      },
-      {
-        name: "Rasmus Hojgaard",
-      },
-      {
-        name: "Alexander Bjork",
-      },
-      {
-        name: "Matthew Jordan",
-      },
-      {
-        name: "Ewen Ferguson",
-      },
-      {
-        name: "Thorbjorn Olesen",
-      },
-      {
-        name: "Alex Noren",
-      },
-      {
-        name: "Adam Schenk",
-      },
-      {
-        name: "Victor Perez",
-      },
-      {
-        name: "Jordan Smith",
-      },
-      {
-        name: "Christiaan Bezuidenhout",
-      },
-      {
-        name: "Tom Hoge",
-      },
-      {
-        name: "Taylor Moore",
-      },
-      {
-        name: "Nick Taylor",
-      },
-      {
-        name: "Billy Horschel",
-      },
-      {
-        name: "Daniel Hillier",
-      },
-      {
-        name: "Yannik Paul",
-      },
-      {
-        name: "Davis Riley",
-      },
-      {
-        name: "Andrew Putnam",
-      },
-      {
-        name: "Brendon Todd",
-      },
-      {
-        name: "K.H. Lee",
-      },
-      {
-        name: "Abraham Ancer",
-      },
-      {
-        name: "Pablo Larrazabal",
-      },
-      {
-        name: "Lee Hodges",
-      },
-      {
-        name: "Michael Kim",
-      },
-      {
-        name: "Keita Nakajima",
-      },
-      {
-        name: "Henrik Stenson",
-      },
-      {
-        name: "Matt Wallace",
-      },
-      {
-        name: "Francesco Molinari",
-      },
-      {
-        name: "Richard Bland",
-      },
-      {
-        name: "Laurie Canter",
-      },
-      {
-        name: "Rikuya Hoshino",
-      },
-      {
-        name: "Takumi Kanaya",
-      },
-      {
-        name: "Joost Luiten",
-      },
-      {
-        name: "Richie Ramsay",
-      },
-      {
-        name: "Guido Migliozzi",
-      },
-      {
-        name: "Adrian Otaegui",
-      },
-      {
-        name: "Antoine Rozner",
-      },
-      {
-        name: "Matthew Southgate",
-      },
-      {
-        name: "David Lingmerth",
-      },
-      {
-        name: "Danny Willett",
-      },
-      {
-        name: "Kalle Samooja",
-      },
-      {
-        name: "Jorge Campillo",
-      },
-      {
-        name: "Alex Fitzpatrick",
-      },
-      {
-        name: "Romain Langasque",
-      },
-      {
-        name: "Kyungnam Kang",
-      },
-      {
-        name: "Thriston Lawrence",
-      },
-      {
-        name: "Charl Schwartzel",
-      },
-      {
-        name: "Stewart Cink",
-      },
-      {
-        name: "Dan Bradbury",
-      },
-      {
-        name: "Ben Griffin",
-      },
-      {
-        name: "Zach Johnson",
-      },
-      {
-        name: "Jazz Janewattananond",
-      },
-      {
-        name: "David Micheluzzi",
-      },
-      {
-        name: "Marcel Siem",
-      },
-      {
-        name: "Scott Stallings",
-      },
-      {
-        name: "Connor Syme",
-      },
-      {
-        name: "Sami Valimaki",
-      },
-      {
-        name: "Adri Arnaus",
-      },
-      {
-        name: "Alejandro Canizares",
-      },
-      {
-        name: "Seungsu Han",
-      },
-      {
-        name: "Ernie Els",
-      },
-      {
-        name: "Bio Kim",
-      },
-      {
-        name: "Hurly Long",
-      },
-      {
-        name: "Trey Mullinax",
-      },
-      {
-        name: "Taiga Semikawa",
-      },
-      {
-        name: "Callum Shinkwin",
-      },
-      {
-        name: "Nacho Elvira",
-      },
-      {
-        name: "Kazuki Higa",
-      },
-      {
-        name: "Christo Lamprecht",
-      },
-      {
-        name: "Travis Smyth",
-      },
-      {
-        name: "Shubhankar Sharma",
-      },
-      {
-        name: "Brandon Robinson Thompson",
-      },
-      {
-        name: "Marc Warren",
-      },
-      {
-        name: "Zack Fischer",
-      },
-      {
-        name: "Jose Luis Ballester",
-      },
-      {
-        name: "Oliver Wilson",
-      },
-      {
-        name: "Tiger Christensen",
-      },
-      {
-        name: "Kyle Barker",
-      },
-      {
-        name: "Haydn Barron",
-      },
-      {
-        name: "Harrison Crowe",
-      },
-      {
-        name: "Darren Clarke",
-      },
-      {
-        name: "Oliver Farr",
-      },
-      {
-        name: "Kensei Hirata",
-      },
-      {
-        name: "Hiroshi Iwata",
-      },
-      {
-        name: "Mateo Fernandez de Oliveira",
-      },
-      {
-        name: "Taichi Kho",
-      },
-      {
-        name: "Alex Maguire",
-      },
-      {
-        name: "Marco Penge",
-      },
-      {
-        name: "Connor McKinney",
-      },
-      {
-        name: "Martin Rohwer",
-      },
-      {
-        name: "Ockie Strydom",
-      },
-      {
-        name: "Kazuki Yasumori",
-      },
-      {
-        name: "John Daly",
-      },
-      {
-        name: "Graeme Robertson",
-      },
-      {
-        name: "Michael Stewart",
-      },
-      {
-        name: "Gunner Wiebe",
-      },
+      { name: "Scottie Scheffler" },
+      { name: "Rory McIlroy" },
+      { name: "Jon Rahm" },
+      { name: "Xander Schauffele" },
+      { name: "Hideki Matsuyama" },
+      { name: "Brooks Koepka" },
+      { name: "Jordan Spieth" },
+      { name: "Joaquin Niemann" },
+      { name: "Ludvig Aberg" },
+      { name: "Viktor Hovland" },
+      { name: "Matt Fitzpatrick" },
+      { name: "Bryson DeChambeau" },
+      { name: "Tony Finau" },
+      { name: "Patrick Cantlay" },
+      { name: "Dustin Johnson" },
+      { name: "Will Zalatoris" },
+      { name: "Wyndham Clark" },
+      { name: "Tommy Fleetwood" },
+      { name: "Justin Thomas" },
+      { name: "Cameron Smith" },
+      { name: "Sahith Theegala" },
+      { name: "Collin Morikawa" },
+      { name: "Cameron Young" },
+      { name: "Tyrrell Hatton" },
+      { name: "Russell Henley" },
+      { name: "Max Homa" },
+      { name: "Si Woo Kim" },
+      { name: "Shane Lowry" },
+      { name: "Brian Harman" },
+      { name: "Jason Day" },
+      { name: "Corey Conners" },
+      { name: "Patrick Reed" },
+      { name: "Adam Scott" },
+      { name: "Sam Burns" },
+      { name: "Min Woo Lee" },
+      { name: "Denny McCarthy" },
+      { name: "Byeong Hun An" },
+      { name: "Akshay Bhatia" },
+      { name: "Sungjae Im" },
+      { name: "Sergio Garcia" },
+      { name: "Justin Rose" },
+      { name: "Harris English" },
+      { name: "Tom Kim" },
+      { name: "Tiger Woods" },
+      { name: "Rickie Fowler" },
+      { name: "Chris Kirk" },
+      { name: "Adrian Meronk" },
+      { name: "Stephan Jaeger" },
+      { name: "Sepp Straka" },
+      { name: "Kurt Kitayama" },
+      { name: "Keegan Bradley" },
+      { name: "Adam Hadwin" },
+      { name: "Nicolai Hojgaard" },
+      { name: "Nick Taylor" },
+      { name: "Erik Van Rooyen" },
+      { name: "Thorbjorn Olesen" },
+      { name: "Austin Eckroat" },
+      { name: "Matthieu Pavon" },
+      { name: "Taylor Moore" },
+      { name: "Ryan Fox" },
+      { name: "Phil Mickelson" },
+      { name: "J.T. Poston" },
+      { name: "Eric Cole" },
+      { name: "Emiliano Grillo" },
+      { name: "Adam Schenk" },
+      { name: "Jake Knapp" },
+      { name: "Gary Woodland" },
+      { name: "Lucas Glover" },
+      { name: "Cam Davis" },
+      { name: "Nick Dunlap" },
+      { name: "Luke List" },
+      { name: "Charl Schwartzel" },
+      { name: "Bubba Watson" },
+      { name: "Lee Hodges" },
+      { name: "Ryo Hisatsune" },
+      { name: "Peter Malnati" },
+      { name: "Zach Johnson" },
+      { name: "Grayson Murray" },
+      { name: "Danny Willett" },
+      { name: "Camilo Villegas" },
+      { name: "Christo Lamprecht" },
+      { name: "Stewart Hagestad" },
+      { name: "Santiago De la Fuente" },
+      { name: "Vijay Singh" },
+      { name: "Mike Weir" },
+      { name: "Jose Maria Olazabal" },
+      { name: "Fred Couples" },
+      { name: "Neal Shipley" },
+      { name: "Jasper Stubbs " },
     ],
   }),
 });

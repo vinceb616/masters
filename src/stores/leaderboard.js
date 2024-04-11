@@ -3,7 +3,7 @@ import { usePlayersListStore } from "@/stores/players-list";
 
 export const useLeaderboardStore = defineStore("leaderboard", {
   state: () => ({
-    eventKey: "401465539",
+    eventKey: "401580344",
     leaderboard: [],
     players: [],
     tierGroups: [],
@@ -29,14 +29,14 @@ export const useLeaderboardStore = defineStore("leaderboard", {
     },
     createTiers() {
       const tierPlayers = usePlayersListStore().tournamentPlayers;
-      const size = 15;
+      const size = 11;
 
       while (tierPlayers.length > 0)
         this.tierGroups.push(tierPlayers.splice(0, size));
 
-      if (this.tierGroups[10]) {
-        this.tierGroups[9] = [...this.tierGroups[9], ...this.tierGroups[10]];
-        this.tierGroups.splice(10, 1);
+      if (this.tierGroups[8]) {
+        this.tierGroups[7] = [...this.tierGroups[7], ...this.tierGroups[8]];
+        this.tierGroups.splice(8, 1);
       }
     },
     createLeaderboard() {
@@ -98,9 +98,7 @@ export const useLeaderboardStore = defineStore("leaderboard", {
 
       list.forEach((item) => {
         const filterPlayer = players.find(
-          (player) =>
-            player.athlete?.displayName?.toLowerCase() ===
-            item?.name?.toLowerCase()
+          (player) => player.athlete?.id === item?.id
         );
 
         if (
