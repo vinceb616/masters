@@ -12,7 +12,7 @@
       </span>
     </div>
     <div
-      class="flex-1 px-2 py-0.5 bg-white border-b border-l border-slate-300 flex items-center overflow-hidden sm:space-x-2"
+      class="flex-1 px-2 py-0.5 bg-white border-l border-slate-300 flex items-center overflow-hidden sm:space-x-2"
       :class="{
         'border-b border-slate-300':
           index !== 7 && index !== 3 && index !== cutIndex,
