@@ -24,9 +24,7 @@
           <div
             class="w-full"
             :class="{
-              'border-b border-tournament-300':
-                index === cutLine(team.players) &&
-                leaderboardStore.tournament.numberOfRounds < 3,
+              'border-b border-tournament-300': index === cutLine(team.players),
             }"
           >
             <player
@@ -52,6 +50,9 @@ import Total from "@/components/teams/total.vue";
 import { useLeaderboardStore } from "@/stores/leaderboard";
 
 const leaderboardStore = useLeaderboardStore();
+
+console.log(leaderboardStore.leaderboard);
+// console.log(leaderboardStore.leaderboard.tournament.numberOfRounds < 3);
 
 const cutLine = (players) => {
   const cutIndex = players.findIndex(

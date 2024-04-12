@@ -13,12 +13,22 @@ export const useLeaderboardStore = defineStore("leaderboard", {
     tournament: null,
   }),
   actions: {
+    resetState() {
+      this.leaderboard = [];
+      this.players = [];
+      this.tierGroups = [];
+      this.createdTeams = [];
+      this.eligibleTeams = [];
+      this.cutTeams = [];
+      this.tournament = null;
+    },
     async fetchLeaderboard() {
       try {
         const response = await fetch(
           `https://site.api.espn.com/apis/site/v2/sports/golf/leaderboard?event=${this.eventKey}`
         );
         const data = await response.json();
+        this.resetState();
         this.players = data.events[0].competitions[0].competitors;
         this.tournament = data.events[0].tournament;
         this.createTeams();

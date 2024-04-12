@@ -50,7 +50,7 @@
           })
         "
       >
-        <template v-if="model.status?.thru || model.status?.thru === 0">
+        <template v-if="model.status?.thru || model.status?.thru === '0'">
           {{ model.status?.thru }}
         </template>
         <template v-else> - </template>

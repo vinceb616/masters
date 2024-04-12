@@ -6,7 +6,7 @@
       </span>
     </div>
     <div
-      class="flex-1 px-2 py-0.5 bg-white border-l border-slate-300 flex items-center overflow-hidden sm:space-x-2"
+      class="flex-1 px-2 py-0.5 bg-white border-l border-b border-slate-300 flex items-center overflow-hidden sm:space-x-2"
     >
       <span v-if="showPlayerId"> {{ model.athlete?.id }}</span>
       <span v-else class="hidden sm:flex w-4 h-auto">
@@ -33,7 +33,7 @@
             model.status?.type?.name === 'STATUS_IN_PROGRESS',
         }"
       >
-        <template v-if="model.status?.thru || model.status?.thru === 0">
+        <template v-if="model.status?.thru || model.status?.thru === '0'">
           {{ model.status?.thru }}
         </template>
         <template v-else> - </template>

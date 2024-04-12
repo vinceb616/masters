@@ -73,4 +73,10 @@ const viewsStore = useViewsStore();
 
 leaderboard.createTiers();
 leaderboard.fetchLeaderboard();
+
+const fetchLeaderboard = () => {
+  leaderboard.fetchLeaderboard();
+};
+
+setInterval(fetchLeaderboard, 30000);
 </script>
