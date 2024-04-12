@@ -77,10 +77,10 @@
         </template>
         <template
           v-else-if="
-            model.linescores[model.linescores.length - 2]?.displayValue
+            model.linescores[model.linescores.length - 1]?.displayValue
           "
         >
-          {{ model.linescores[model.linescores.length - 2]?.displayValue }}
+          {{ model.linescores[model.linescores.length - 1]?.displayValue }}
         </template>
         <template v-else> - </template>
       </span>

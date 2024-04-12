@@ -61,6 +61,13 @@ const calculatedPosition = computed(() => {
     (team) => team.totalScore === props.model.totalScore
   );
 
-  return rank + 1;
+  if (
+    leaderboardStore.leaderboard[rank + 1]?.totalScore ===
+    props.model.totalScore
+  ) {
+    return `T${rank + 1}`;
+  } else {
+    return rank + 1;
+  }
 });
 </script>
