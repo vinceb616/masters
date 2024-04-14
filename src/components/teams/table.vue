@@ -24,7 +24,9 @@
           <div
             class="w-full"
             :class="{
-              'border-b border-tournament-300': index === cutLine(team.players),
+              'border-b border-tournament-300':
+                index === cutLine(team.players) &&
+                !roundThreeStarted(team.players),
             }"
           >
             <player
@@ -51,8 +53,18 @@ import { useLeaderboardStore } from "@/stores/leaderboard";
 
 const leaderboardStore = useLeaderboardStore();
 
-console.log(leaderboardStore.leaderboard);
-// console.log(leaderboardStore.leaderboard.tournament.numberOfRounds < 3);
+const roundThreeStarted = (players) => {
+  let roundThreeStarted = false;
+
+  players.forEach((player) => {
+    if (player?.status?.period > 2) {
+      roundThreeStarted = true;
+      return;
+    }
+  });
+
+  return roundThreeStarted;
+};
 
 const cutLine = (players) => {
   const cutIndex = players.findIndex(
