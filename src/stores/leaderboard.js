@@ -11,6 +11,7 @@ export const useLeaderboardStore = defineStore("leaderboard", {
     eligibleTeams: [],
     cutTeams: [],
     tournament: null,
+    status: null,
   }),
   actions: {
     resetState() {
@@ -21,6 +22,7 @@ export const useLeaderboardStore = defineStore("leaderboard", {
       this.eligibleTeams = [];
       this.cutTeams = [];
       this.tournament = null;
+      this.status = null;
     },
     async fetchLeaderboard() {
       try {
@@ -31,6 +33,7 @@ export const useLeaderboardStore = defineStore("leaderboard", {
         this.resetState();
         this.players = data.events[0].competitions[0].competitors;
         this.tournament = data.events[0].tournament;
+        this.status = data.events[0].status;
         this.createTeams();
         this.createLeaderboard();
       } catch (error) {

@@ -6,8 +6,17 @@
       </span>
     </div>
     <div
-      class="flex-1 px-2 py-0.5 bg-white flex align-center border-b border-l border-slate-300"
+      class="flex-1 px-2 py-0.5 bg-white flex align-center border-b border-l border-slate-300 items-center space-x-1"
     >
+      <span v-if="leaderboardStore.status.type.completed && position < 3"
+        ><trophy-icon
+          class="h-3 w-3"
+          :class="[
+            { 'text-amber-400': position === 0 },
+            { 'text-grey-400': position === 1 },
+            { 'text-amber-700': position === 2 },
+          ]"
+      /></span>
       <span>
         {{ model.teamName }}
       </span>
@@ -34,6 +43,7 @@
 <script setup>
 import { computed } from "vue";
 import { useLeaderboardStore } from "@/stores/leaderboard";
+import { TrophyIcon } from "@heroicons/vue/24/solid";
 
 const leaderboardStore = useLeaderboardStore();
 
