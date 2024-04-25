@@ -1,9 +1,11 @@
 import { defineStore } from "pinia";
 import { usePlayersListStore } from "@/stores/players-list";
+import { useViewsStore } from "@/stores/views";
 
 export const useLeaderboardStore = defineStore("leaderboard", {
   state: () => ({
     eventKey: "401580344",
+    date: "",
     leaderboard: [],
     players: [],
     tierGroups: [],
@@ -31,6 +33,7 @@ export const useLeaderboardStore = defineStore("leaderboard", {
         );
         const data = await response.json();
         this.resetState();
+        this.date = data.events[0].date;
         this.players = data.events[0].competitions[0].competitors;
         this.tournament = data.events[0].tournament;
         this.status = data.events[0].status;

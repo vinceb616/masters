@@ -2,7 +2,7 @@
   <div
     class="bg-slate-100 font-nova min-h-screen flex flex-col justify-between"
   >
-    <main class="container max-w-3xl p-4 pb-0 mx-auto">
+    <main class="container max-w-3xl p-4 pb-10 mx-auto">
       <div class="w-full flex justify-center mb-10">
         <template v-if="viewsStore.event === 'masters'">
           <img
@@ -33,7 +33,8 @@
           />
         </template>
       </div>
-      <template v-if="viewsStore.activeView === 'tiers'">
+      <template v-if="viewsStore.activeView === 'signup'">
+        <rules />
         <teams-form />
         <!-- <tiers-table /> -->
       </template>
@@ -51,7 +52,7 @@
         <rules />
       </template>
     </main>
-    <sticky-nav />
+    <sticky-nav v-if="viewsStore.activeView !== 'signup'" />
   </div>
 </template>
 
@@ -67,16 +68,34 @@ import Rules from "@/components/rules.vue";
 import TiersTable from "@/components/tiers/tiers-table.vue";
 import TeamsForm from "@/components/tiers/teams-form.vue";
 import PlayerLookup from "@/components/teams/lookup.vue";
+import { onBeforeMount, onMounted } from "vue";
 
 const leaderboard = useLeaderboardStore();
 const viewsStore = useViewsStore();
-
-leaderboard.createTiers();
-leaderboard.fetchLeaderboard();
 
 const fetchLeaderboard = () => {
   leaderboard.fetchLeaderboard();
 };
 
-setInterval(fetchLeaderboard, 30000);
+const setDefaultView = () => {
+  const timeElapsed = Date.now();
+  const today = new Date(timeElapsed);
+  const eventDate = new Date(leaderboard.date);
+
+  if (today < eventDate) {
+    viewsStore.activeView = "signup";
+  } else {
+    viewsStore.activeView = "teams";
+  }
+};
+
+onBeforeMount(async () => {
+  leaderboard.createTiers();
+  await leaderboard.fetchLeaderboard();
+  setDefaultView();
+});
+
+onMounted(() => {
+  setInterval(fetchLeaderboard, 30000);
+});
 </script>

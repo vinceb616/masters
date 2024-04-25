@@ -15,11 +15,7 @@
       <li>Top 4 player rankings contribute to a team score</li>
       <li>Team must have 4 players make the cut to be eligible to win</li>
       <li>Lowest team score wins</li>
-      <li>
-        Tie breaker is decided based on your highest player ranking. If your
-        highest player ranking ties your opponents then it will cascade to your
-        next highest eligible player ranking (top 4 players only)
-      </li>
+      <li>Positional ties split payout</li>
     </ul>
   </div>
 </template>

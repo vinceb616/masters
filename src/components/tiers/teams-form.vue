@@ -4,20 +4,48 @@
       v-if="!state.formCompleted"
       ref="form"
       @submit.prevent="sendEmail"
-      class="w-full max-w-[450px]"
+      class="w-full"
     >
       <div class="flex flex-col space-y-4">
-        <h2 class="text-2xl">Create your team</h2>
+        <h2
+          class="flex justify-center text-xs font-medium border-t border-b px-4 text-tournament-300 border-tournament-900"
+        >
+          Signup
+        </h2>
         <div class="flex flex-col space-y-2">
-          <label for="team" class="text-sm">Enter your name</label>
+          <label for="team" class="text-sm">First Name</label>
           <input
+            v-model="state.firstName"
             type="text"
-            name="team_name"
+            name="first_name"
             class="appearance-none bg-white py-2 px-3 rounded"
             required
           />
         </div>
-        <h2 class="text-2xl">Select your players</h2>
+        <div class="flex flex-col space-y-2">
+          <label for="team" class="text-sm">Last Name</label>
+          <input
+            v-model="state.lastName"
+            type="text"
+            name="last_name"
+            class="appearance-none bg-white py-2 px-3 rounded"
+            required
+          />
+        </div>
+        <div class="flex flex-col space-y-2">
+          <label for="team" class="text-sm">Email</label>
+          <input
+            type="email"
+            name="user_email"
+            class="appearance-none bg-white py-2 px-3 rounded"
+            required
+          />
+        </div>
+        <h2
+          class="flex justify-center text-xs font-medium border-t border-b px-4 text-tournament-300 border-tournament-900"
+        >
+          Create your team
+        </h2>
         <div class="flex flex-col space-y-2">
           <label class="text-sm">Tier 1 Player</label>
           <div class="select-wrapper">
@@ -270,12 +298,13 @@
           type="submit"
           class="px-4 py-2 w-full bg-tournament-300 text-white rounded cursor-pointer hover:bg-tournament-300 hover:opacity-80 transition-all ease-in-out duration-300"
         >
-          Submit Form
+          Register Team
         </button>
       </div>
     </form>
     <div v-if="state.formSuccess" class="text-tournament-900">
-      Your team has been submitted. Please Venmo me $20 to complete entry
+      {{ state.firstName }} {{ state.lastName }} your team has been submitted.
+      Please Venmo $20 to complete entry
     </div>
     <div v-if="state.formError" class="text-tournament-300">
       Error submitting your team. Please refresh the page and try again
@@ -293,13 +322,15 @@
 
 <script setup>
 import emailjs from "@emailjs/browser";
-import { ref, reactive } from "vue";
+import { onMounted, ref, reactive } from "vue";
 
 const form = ref(null);
 const state = reactive({
   formSuccess: false,
   formError: false,
   formCompleted: false,
+  firstName: "",
+  lastName: "",
 });
 
 const sendEmail = () => {
@@ -311,6 +342,12 @@ const sendEmail = () => {
       () => {
         state.formCompleted = true;
         state.formSuccess = true;
+        setCookie("firstName", state.firstName, {
+          expires: new Date("10"),
+        });
+        setCookie("lastName", state.lastName, {
+          expires: new Date("10"),
+        });
       },
       (error) => {
         state.formCompleted = true;
@@ -318,6 +355,44 @@ const sendEmail = () => {
       }
     );
 };
+
+const getCookie = (cname) => {
+  const name = `${cname}=`;
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const ca = decodedCookie.split(";");
+
+  for (const item of ca) {
+    const c = item.trim();
+
+    if (c.startsWith(name)) {
+      return c.substring(name.length, c.length);
+    }
+  }
+
+  return "";
+};
+
+const setCookie = (cname, cvalue, exdays) => {
+  const date = new Date();
+  date.setTime(date.getTime() + exdays * 24 * 60 * 60 * 1000);
+  const expires = `expires=${date.toUTCString()}`;
+  document.cookie = `${cname}=${cvalue};${expires};path=/`;
+};
+
+const checkForRegisteredTeam = () => {
+  const firstName = getCookie("firstName");
+  const lastName = getCookie("lastName");
+  if (firstName && lastName) {
+    state.firstName = firstName;
+    state.lastName = lastName;
+    state.formCompleted = true;
+    state.formSuccess = true;
+  }
+};
+
+onMounted(() => {
+  checkForRegisteredTeam();
+});
 </script>
 
 <style lang="scss" scoped>
