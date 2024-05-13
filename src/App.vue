@@ -11,7 +11,7 @@
             class="w-full max-w-[200px]"
           />
         </template>
-        <template v-if="viewsStore.event === 'pga championship'">
+        <template v-if="viewsStore.event === 'pga'">
           <img
             alt="PGA Championship"
             src="./assets/pga-championship-logo.png"
@@ -82,20 +82,27 @@ const setDefaultView = () => {
   const today = new Date(timeElapsed);
   const eventDate = new Date(leaderboard.date);
 
-  if (today < eventDate) {
-    viewsStore.activeView = "signup";
-  } else {
-    viewsStore.activeView = "teams";
+  if (viewsStore.activeView !== "signup") {
+    if (today < eventDate) {
+      viewsStore.activeView = "signup";
+    } else {
+      viewsStore.activeView = "teams";
+    }
   }
 };
 
 onBeforeMount(async () => {
   leaderboard.createTiers();
-  await leaderboard.fetchLeaderboard();
-  setDefaultView();
+
+  if (viewsStore.activeView !== "signup") {
+    await leaderboard.fetchLeaderboard();
+    setDefaultView();
+  }
 });
 
 onMounted(() => {
-  setInterval(fetchLeaderboard, 30000);
+  if (viewsStore.activeView !== "signup") {
+    setInterval(fetchLeaderboard, 30000);
+  }
 });
 </script>

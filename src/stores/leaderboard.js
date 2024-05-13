@@ -45,14 +45,15 @@ export const useLeaderboardStore = defineStore("leaderboard", {
     },
     createTiers() {
       const tierPlayers = usePlayersListStore().tournamentPlayers;
-      const size = 11;
+      const size = 16;
 
-      while (tierPlayers.length > 0)
+      while (tierPlayers.length > 0) {
         this.tierGroups.push(tierPlayers.splice(0, size));
+      }
 
-      if (this.tierGroups[8]) {
-        this.tierGroups[7] = [...this.tierGroups[7], ...this.tierGroups[8]];
-        this.tierGroups.splice(8, 1);
+      if (this.tierGroups[10]) {
+        this.tierGroups[9] = [...this.tierGroups[9], ...this.tierGroups[10]];
+        this.tierGroups.splice(10, 1);
       }
     },
     createLeaderboard() {
