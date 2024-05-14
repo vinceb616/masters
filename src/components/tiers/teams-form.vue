@@ -71,7 +71,7 @@
         </button>
       </div>
     </form>
-    <div v-if="state.formSuccess" class="text-tournament-900">
+    <div v-if="state.formSuccess" class="text-tournament-100">
       {{ state.firstName }} {{ state.lastName }} your team has been submitted.
       Teams won't be viewable till the tournament start date. If you have not
       already please Venmo $20 to complete entry. Good luck!

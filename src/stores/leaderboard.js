@@ -4,7 +4,7 @@ import { useViewsStore } from "@/stores/views";
 
 export const useLeaderboardStore = defineStore("leaderboard", {
   state: () => ({
-    eventKey: "401580344",
+    eventKey: "401580351",
     date: "",
     leaderboard: [],
     players: [],
@@ -19,8 +19,8 @@ export const useLeaderboardStore = defineStore("leaderboard", {
     resetState() {
       this.leaderboard = [];
       this.players = [];
-      this.tierGroups = [];
-      this.createdTeams = [];
+      // this.tierGroups = [];
+      // this.createdTeams = [];
       this.eligibleTeams = [];
       this.cutTeams = [];
       this.tournament = null;
