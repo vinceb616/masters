@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center mb-12">
+  <div class="flex justify-center my-12">
     <form
       v-if="!state.formCompleted"
       ref="form"
@@ -7,11 +7,7 @@
       class="w-full"
     >
       <div class="flex flex-col space-y-4">
-        <h2
-          class="flex justify-center text-xs font-medium border-t border-b px-4 text-tournament-300 border-tournament-900"
-        >
-          Signup
-        </h2>
+        <h2 class="text-xl font-medium text-tournament-900">Signup</h2>
         <div class="flex flex-col space-y-2">
           <label for="team" class="text-sm">First Name</label>
           <input
@@ -32,9 +28,7 @@
             required
           />
         </div>
-        <h2
-          class="flex justify-center text-xs font-medium border-t border-b px-4 text-tournament-300 border-tournament-900"
-        >
+        <h2 class="text-xl font-medium text-tournament-900 pt-8">
           Create your team
         </h2>
         <div
@@ -179,7 +173,7 @@ onMounted(() => {
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  background-image: url(../../assets/chevron-down.svg);
+  background-image: url(@/assets/chevron-down.svg);
   background-size: 24px 24px;
   background-position: center center;
   background-repeat: no-repeat;

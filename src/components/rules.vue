@@ -1,10 +1,8 @@
 <template>
   <div class="prose">
-    <h2
-      class="flex justify-center text-xs font-medium border-t border-b px-4 text-tournament-300 border-tournament-900"
-    >
-      Rules
-    </h2>
+    <div class="w-full flex items-center justify-between space-x-4">
+      <h2 class="text-xl font-medium text-tournament-900">Rules</h2>
+    </div>
 
     <ul class="list-disc pl-6 py-6 space-y-2">
       <li>

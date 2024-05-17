@@ -1,84 +1,74 @@
 <template>
-  <div class="border-l border-slate-300 text-sm mb-8">
-    <div class="w-full">
-      <div class="w-full flex items-center bg-tournament-500 text-white">
-        <div class="w-[50px] text-center py-0.5">
-          <span class="text-[9px]"> POS </span>
-        </div>
-        <div class="flex-1 px-2 py-0.5">
-          <span class="text-[9px]"> PAYOUT </span>
-        </div>
-      </div>
-    </div>
-    <div class="w-full">
-      <div class="w-full flex items-center">
-        <div
-          class="w-[50px] text-center py-0.5 bg-white border-b border-slate-300"
-        >
-          <span class="text-xs"> 1ST </span>
-        </div>
-        <div
-          class="flex-1 px-2 py-0.5 bg-white flex align-center border-b border-l border-slate-300"
-        >
-          <span> $200 </span>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="w-full flex items-center">
-        <div
-          class="w-[50px] text-center py-0.5 bg-white border-b border-slate-300"
-        >
-          <span class="text-xs"> 2ND </span>
-        </div>
-        <div
-          class="flex-1 px-2 py-0.5 bg-white flex align-center border-b border-l border-slate-300"
-        >
-          <span> $60 </span>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="w-full flex items-center">
-        <div
-          class="w-[50px] text-center py-0.5 bg-white border-b border-slate-300"
-        >
-          <span class="text-xs"> 3RD </span>
-        </div>
-        <div
-          class="flex-1 px-2 py-0.5 bg-white flex align-center border-b border-l border-slate-300"
-        >
-          <span> $20 </span>
-        </div>
-      </div>
-    </div>
+  <div class="flex w-full flex-col space-y-1 mb-10">
+    <label class="sr-only" for="search">Search</label>
+    <input
+      v-model="state.lookupName"
+      id="searchPlayer"
+      type="text"
+      name="search"
+      class="appearance-none bg-white py-2 px-3 rounded w-full"
+      placeholder="Search for player"
+    />
   </div>
-  <div class="mb-20">
-    <h2
-      class="flex justify-center text-tournament-300 text-xs font-medium border-t border-tournament-900 px-4"
-    >
-      Leaderboard
-    </h2>
+  <div class="space-y-2">
+    <div class="w-full px-3">
+      <h2 class="text-xl font-medium text-tournament-900">Leaderboard</h2>
+    </div>
 
-    <div class="border-l border-slate-300 text-sm">
-      <div class="w-full">
-        <player-attributes :isLeaderboard="true" />
-      </div>
-      <div
-        v-for="(team, index) in leaderboardStore.leaderboard"
-        :key="index"
-        class="w-full"
-      >
-        <leaderboard-item :model="team" :position="index" />
+    <div class="space-y-4">
+      <div>
+        <div
+          v-for="(player, index) in sortedLivePlayers"
+          :key="index"
+          class="w-full relative"
+        >
+          <leaderboard-item :model="player" :show-player-id="false" />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import PlayerAttributes from "@/components/shared/player-attributes.vue";
-import LeaderboardItem from "@/components/leaderboard/leaderboard-item.vue";
+import { computed, reactive } from "vue";
+import LeaderboardItem from "@/components/leaderboard/components/item.vue";
 import { useLeaderboardStore } from "@/stores/leaderboard";
 
 const leaderboardStore = useLeaderboardStore();
+
+const state = reactive({
+  lookupName: "",
+});
+
+const sortedLivePlayers = computed(() => {
+  let playerList = [];
+  let cutPlayers = [];
+
+  leaderboardStore.players.forEach((player) => {
+    if (
+      player.status?.displayValue === "WD" ||
+      player.status?.displayValue === "CUT"
+    ) {
+      cutPlayers = [...cutPlayers, player];
+    } else {
+      playerList = [...playerList, player];
+    }
+  });
+
+  playerList.sort((a, b) =>
+    a.statistics[0].value > b.statistics[0].value ? 1 : -1
+  );
+
+  playerList = [...playerList, ...cutPlayers];
+
+  if (state.lookupName.length > 0) {
+    return playerList.filter((player) =>
+      player.athlete?.displayName
+        ?.toLowerCase()
+        .includes(state.lookupName.toLowerCase())
+    );
+  } else {
+    return playerList;
+  }
+});
 </script>

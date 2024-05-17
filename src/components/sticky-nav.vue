@@ -2,26 +2,19 @@
   <footer
     class="sticky bottom-0 w-full flex items-center bg-white space-x-[1px]"
   >
-    <!-- <button
-        v-if="viewsStore.activeView !== 'signup'"
-        class="flex-1 px-4 py-3 text-white flex items-center justify-center bg-tournament-900"
-        @click="viewsStore.toggleView('signup')"
-      >
-        <span>Signup Form</span>
-      </button> -->
     <button
-      v-if="viewsStore.activeView !== 'teams'"
+      v-if="viewsStore.activeView !== 'standings'"
       class="flex-1 px-4 py-3 text-white flex items-center justify-center bg-tournament-900"
-      @click="viewsStore.toggleView('teams')"
+      @click="viewsStore.toggleView('standings')"
     >
-      <span>Teams</span>
+      <span>Team Standings</span>
     </button>
     <button
-      v-if="viewsStore.activeView !== 'live'"
+      v-if="viewsStore.activeView !== 'leaderboard'"
       class="flex-1 px-4 py-3 text-white flex items-center justify-center bg-tournament-900"
-      @click="viewsStore.toggleView('live')"
+      @click="viewsStore.toggleView('leaderboard')"
     >
-      <span>Live</span>
+      <span>Leaderboard</span>
     </button>
     <button
       v-if="viewsStore.activeView !== 'rules'"
@@ -37,9 +30,4 @@
 import { useViewsStore } from "@/stores/views";
 
 const viewsStore = useViewsStore();
-const event = useViewsStore().event;
-
-const toggleView = (params) => {
-  viewStore.toggleView(params);
-};
 </script>

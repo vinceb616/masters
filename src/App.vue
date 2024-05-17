@@ -7,45 +7,43 @@
         <template v-if="viewsStore.event === 'masters'">
           <img
             alt="The masters"
-            src="./assets/masters-logo.png"
+            src="@/assets/masters-logo.png"
             class="w-full max-w-[200px]"
           />
         </template>
         <template v-if="viewsStore.event === 'pga'">
           <img
             alt="PGA Championship"
-            src="./assets/pga-championship-logo.png"
+            src="@/assets/pga-championship-logo.png"
             class="w-full max-w-[200px] mix-blend-multiply"
           />
         </template>
         <template v-if="viewsStore.event === 'us open'">
           <img
             alt="Us Open"
-            src="./assets/us-open-logo.png"
+            src="@/assets/us-open-logo.png"
             class="w-full max-w-[200px] mix-blend-multiply"
           />
         </template>
         <template v-if="viewsStore.event === 'open championship'">
           <img
             alt="The Open Championship"
-            src="./assets/open-championship-logo.png"
+            src="@/assets/open-championship-logo.png"
             class="w-full max-w-[200px] mix-blend-multiply"
           />
         </template>
       </div>
       <template v-if="viewsStore.activeView === 'signup'">
         <rules />
-        <teams-form />
-        <!-- <tiers-table /> -->
+        <signup />
       </template>
       <template v-else>
-        <template v-if="viewsStore.activeView === 'teams'">
-          <!-- <player-lookup /> -->
-          <leaderboard-table />
-          <players-table />
+        <template v-if="viewsStore.activeView === 'standings'">
+          <standings />
+          <player />
         </template>
-        <template v-if="viewsStore.activeView === 'live'">
-          <live />
+        <template v-if="viewsStore.activeView === 'leaderboard'">
+          <leaderboard />
         </template>
       </template>
       <template v-if="viewsStore.activeView === 'rules'">
@@ -57,52 +55,28 @@
 </template>
 
 <script setup>
-import "./assets/index.css";
+import "@/assets/index.css";
 import { useLeaderboardStore } from "@/stores/leaderboard";
 import { useViewsStore } from "@/stores/views";
-import LeaderboardTable from "@/components/leaderboard/leaderboard.vue";
-import PlayersTable from "@/components/teams/table.vue";
+import Standings from "@/components/standings/standings.vue";
+import Player from "@/components/player/player.vue";
 import StickyNav from "@/components/sticky-nav.vue";
-import Live from "@/components/live/live.vue";
+import Leaderboard from "@/components/leaderboard/leaderboard.vue";
 import Rules from "@/components/rules.vue";
-import TiersTable from "@/components/tiers/tiers-table.vue";
-import TeamsForm from "@/components/tiers/teams-form.vue";
-import PlayerLookup from "@/components/teams/lookup.vue";
+import Signup from "@/components/signup.vue";
 import { onBeforeMount, onMounted } from "vue";
 
 const leaderboard = useLeaderboardStore();
 const viewsStore = useViewsStore();
 
-const fetchLeaderboard = () => {
-  leaderboard.fetchLeaderboard();
-};
-
-const setDefaultView = () => {
-  const timeElapsed = Date.now();
-  const today = new Date(timeElapsed);
-  const eventDate = new Date(leaderboard.date);
-
-  if (viewsStore.activeView !== "signup") {
-    if (today < eventDate) {
-      viewsStore.activeView = "signup";
-    } else {
-      viewsStore.activeView = "teams";
-    }
-  }
-};
-
-onBeforeMount(async () => {
+onBeforeMount(() => {
   leaderboard.createTiers();
-
-  if (viewsStore.activeView !== "signup") {
-    await leaderboard.fetchLeaderboard();
-    setDefaultView();
-  }
+  leaderboard.fetchLeaderboard();
 });
 
 onMounted(() => {
   if (viewsStore.activeView !== "signup") {
-    setInterval(fetchLeaderboard, 30000);
+    setInterval(leaderboard.fetchLeaderboard, 30000);
   }
 });
 </script>

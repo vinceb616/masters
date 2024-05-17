@@ -3,42 +3,34 @@
     <div
       v-for="(team, index) in leaderboardStore.createdTeams"
       :key="index"
-      class="w-full"
+      class="w-full space-y-2"
     >
-      <h2
-        class="flex justify-center text-tournament-900 text-xs font-medium border-t border-tournament-900 px-4"
-      >
-        {{ team.teamName }}
-      </h2>
+      <score :name="team.teamName" :score="team.totalScore" />
 
-      <div class="text-sm">
-        <div class="w-full">
-          <player-attributes />
-        </div>
+      <div>
         <div
           v-for="(item, index) in team.players"
           :key="index"
-          class="w-full"
+          class="w-full relative"
           :class="{ 'border-b border-tournament-400': index === 3 }"
         >
+          <span
+            v-if="index === cutLine(team.players)"
+            class="text-tournament-300 text-[8px] font-semibold absolute right-3 bottom-0"
+            >Cut Line</span
+          >
           <div
             class="w-full"
             :class="{
-              'border-b border-tournament-300':
-                index === cutLine(team.players) &&
-                !roundThreeStarted(team.players),
+              'border-b border-tournament-300': index === cutLine(team.players),
             }"
           >
-            <player
+            <player-item
               :model="item"
               :index="index"
               :cut-index="cutLine(team.players)"
             />
           </div>
-        </div>
-
-        <div class="w-full">
-          <total :score="team.totalScore" />
         </div>
       </div>
     </div>
@@ -46,9 +38,8 @@
 </template>
 
 <script setup>
-import Player from "@/components/teams/player.vue";
-import PlayerAttributes from "@/components/shared/player-attributes.vue";
-import Total from "@/components/teams/total.vue";
+import PlayerItem from "@/components/player/components/item.vue";
+import Score from "@/components/player/components/score.vue";
 import { useLeaderboardStore } from "@/stores/leaderboard";
 
 const leaderboardStore = useLeaderboardStore();
@@ -69,9 +60,13 @@ const roundThreeStarted = (players) => {
 const cutLine = (players) => {
   const cutIndex = players.findIndex(
     (player) =>
-      player.statistics[0]?.displayValue > leaderboardStore.tournament.cutScore
+      player?.statistics[0]?.displayValue > leaderboardStore.tournament.cutScore
   );
 
-  return cutIndex - 1;
+  if (!roundThreeStarted(players)) {
+    return cutIndex - 1;
+  } else {
+    return -1;
+  }
 };
 </script>

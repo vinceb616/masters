@@ -1,10 +1,11 @@
 import { defineStore } from "pinia";
 import { usePlayersListStore } from "@/stores/players-list";
-import { useViewsStore } from "@/stores/views";
 
 export const useLeaderboardStore = defineStore("leaderboard", {
   state: () => ({
     eventKey: "401580351",
+    tierPlayersPerGroup: 16,
+    tierGroupAmount: 10,
     date: "",
     leaderboard: [],
     players: [],
@@ -19,8 +20,8 @@ export const useLeaderboardStore = defineStore("leaderboard", {
     resetState() {
       this.leaderboard = [];
       this.players = [];
-      // this.tierGroups = [];
-      // this.createdTeams = [];
+      this.tierGroups = [];
+      this.createdTeams = [];
       this.eligibleTeams = [];
       this.cutTeams = [];
       this.tournament = null;
@@ -45,16 +46,19 @@ export const useLeaderboardStore = defineStore("leaderboard", {
     },
     createTiers() {
       const tierPlayers = usePlayersListStore().tournamentPlayers;
-      const size = 16;
 
       while (tierPlayers.length > 0) {
-        this.tierGroups.push(tierPlayers.splice(0, size));
+        this.tierGroups.push(tierPlayers.splice(0, this.tierPlayersPerGroup));
       }
 
-      if (this.tierGroups[10]) {
-        this.tierGroups[9] = [...this.tierGroups[9], ...this.tierGroups[10]];
-        this.tierGroups.splice(10, 1);
+      if (this.tierGroups[this.tierGroupAmount]) {
+        this.tierGroups[this.tierGroupAmount - 1] = [
+          ...this.tierGroups[this.tierGroupAmount - 1],
+          ...this.tierGroups[this.tierGroupAmount],
+        ];
+        this.tierGroups.splice(this.tierGroupAmount, 1);
       }
+      console.log(this.tierGroups);
     },
     createLeaderboard() {
       let leaderboard = [];
@@ -96,7 +100,7 @@ export const useLeaderboardStore = defineStore("leaderboard", {
             player?.status?.displayValue !== "WD" &&
             player?.status?.displayValue !== "CUT"
           ) {
-            totalScore += player.statistics[0]?.value;
+            totalScore += player?.statistics[0]?.value;
             count++;
           }
         }
