@@ -86,9 +86,11 @@
 
 <script setup>
 import { useLeaderboardStore } from "@/stores/leaderboard";
+import { useCookieStore } from "@/stores/cookies";
 import emailjs from "@emailjs/browser";
 import { onMounted, ref, reactive } from "vue";
 
+const cookieStore = useCookieStore();
 const form = ref(null);
 const state = reactive({
   formSuccess: false,
@@ -107,10 +109,10 @@ const sendEmail = () => {
       () => {
         state.formCompleted = true;
         state.formSuccess = true;
-        setCookie("firstName", state.firstName, {
+        cookieStore.setCookie("firstName", state.firstName, {
           expires: new Date("10"),
         });
-        setCookie("lastName", state.lastName, {
+        cookieStore.setCookie("lastName", state.lastName, {
           expires: new Date("10"),
         });
       },
@@ -121,32 +123,9 @@ const sendEmail = () => {
     );
 };
 
-const getCookie = (cname) => {
-  const name = `${cname}=`;
-  const decodedCookie = decodeURIComponent(document.cookie);
-  const ca = decodedCookie.split(";");
-
-  for (const item of ca) {
-    const c = item.trim();
-
-    if (c.startsWith(name)) {
-      return c.substring(name.length, c.length);
-    }
-  }
-
-  return "";
-};
-
-const setCookie = (cname, cvalue, exdays) => {
-  const date = new Date();
-  date.setTime(date.getTime() + exdays * 24 * 60 * 60 * 1000);
-  const expires = `expires=${date.toUTCString()}`;
-  document.cookie = `${cname}=${cvalue};${expires};path=/`;
-};
-
 const checkForRegisteredTeam = () => {
-  const firstName = getCookie("firstName");
-  const lastName = getCookie("lastName");
+  const firstName = cookieStore.getCookie("firstName");
+  const lastName = cookieStore.getCookie("lastName");
   if (firstName && lastName) {
     state.firstName = firstName;
     state.lastName = lastName;

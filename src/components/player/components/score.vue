@@ -1,8 +1,18 @@
 <template>
   <div class="w-full flex items-center justify-between space-x-4 px-3">
-    <h2 class="text-xl font-medium text-tournament-900">
-      {{ name }}
-    </h2>
+    <div class="flex">
+      <button class="flex items-center space-x-2" @click="handlePinnedTeam()">
+        <template v-if="leaderboardStore.createdTeams[teamIndex].isPinned">
+          <star-icon class="w-5 h-5" />
+        </template>
+        <template v-else>
+          <star-outline-icon class="w-5 h-5" />
+        </template>
+        <h2 class="text-xl font-medium text-tournament-900">
+          {{ name }}
+        </h2>
+      </button>
+    </div>
     <div class="flex items-center space-x-4">
       <span class="text-xs leading-8">TEAM SCORE</span>
       <div
@@ -24,6 +34,11 @@
 
 <script setup>
 import { computed } from "vue";
+import { StarIcon as StarOutlineIcon } from "@heroicons/vue/24/outline";
+import { StarIcon } from "@heroicons/vue/24/solid";
+import { useLeaderboardStore } from "@/stores/leaderboard";
+
+const leaderboardStore = useLeaderboardStore();
 
 const props = defineProps({
   name: {
@@ -34,6 +49,10 @@ const props = defineProps({
     type: Number,
     default: null,
   },
+  teamIndex: {
+    type: Number,
+    default: -1,
+  },
 });
 
 const displayScore = computed(() => {
@@ -43,4 +62,8 @@ const displayScore = computed(() => {
     return props.score;
   }
 });
+
+const handlePinnedTeam = () => {
+  leaderboardStore.updatePinnedTeam(props.teamIndex, props.name);
+};
 </script>

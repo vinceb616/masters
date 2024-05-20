@@ -5,7 +5,11 @@
       :key="index"
       class="w-full space-y-2"
     >
-      <score :name="team.teamName" :score="team.totalScore" />
+      <score
+        :name="team.teamName"
+        :score="team.totalScore"
+        :team-index="index"
+      />
 
       <div>
         <div

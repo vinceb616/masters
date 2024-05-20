@@ -71,12 +71,14 @@ const viewsStore = useViewsStore();
 
 onBeforeMount(() => {
   leaderboard.createTiers();
-  leaderboard.fetchLeaderboard();
 });
 
-onMounted(() => {
+onMounted(async () => {
   if (viewsStore.activeView !== "signup") {
-    setInterval(leaderboard.fetchLeaderboard, 30000);
+    await leaderboard.fetchLeaderboard();
+    if (!leaderboard.status.type.completed) {
+      setInterval(leaderboard.fetchLeaderboard, 5000);
+    }
   }
 });
 </script>

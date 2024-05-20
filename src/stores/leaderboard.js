@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { usePlayersListStore } from "@/stores/players-list";
+import { useCookieStore } from "@/stores/cookies";
 
 export const useLeaderboardStore = defineStore("leaderboard", {
   state: () => ({
@@ -26,6 +27,33 @@ export const useLeaderboardStore = defineStore("leaderboard", {
       this.cutTeams = [];
       this.tournament = null;
       this.status = null;
+    },
+    resetPinned(index) {
+      this.createdTeams.forEach((team, j) => {
+        if (index !== j) {
+          team.isPinned = false;
+        }
+      });
+    },
+    updatePinnedTeam(index, name) {
+      const pinnedTeam = useCookieStore().getCookie("pinnedTeam");
+
+      if (pinnedTeam === name) {
+        useCookieStore().setCookie("pinnedTeam", "", {
+          expires: new Date("10"),
+        });
+      } else {
+        useCookieStore().setCookie("pinnedTeam", name, {
+          expires: new Date("10"),
+        });
+      }
+
+      this.createdTeams[index].isPinned = !this.createdTeams[index].isPinned;
+      this.resetPinned(index);
+
+      if (this.createdTeams[0].teamName !== this.createdTeams[index].teamName) {
+        this.createdTeams.unshift(this.createdTeams.splice(index, 1)[0]);
+      }
     },
     async fetchLeaderboard() {
       try {
@@ -58,7 +86,6 @@ export const useLeaderboardStore = defineStore("leaderboard", {
         ];
         this.tierGroups.splice(this.tierGroupAmount, 1);
       }
-      console.log(this.tierGroups);
     },
     createLeaderboard() {
       let leaderboard = [];
@@ -71,10 +98,11 @@ export const useLeaderboardStore = defineStore("leaderboard", {
     },
     createTeams() {
       const teams = usePlayersListStore().teams;
+      const pinnedTeam = useCookieStore().getCookie("pinnedTeam");
 
       teams.forEach((team) => {
         let newTeam = {};
-
+        newTeam.isPinned = team.teamName === pinnedTeam ? true : false;
         newTeam.teamName = team.teamName;
         newTeam.players = this.getPlayersList(team.players);
         newTeam.totalScore = this.getTeamScore(team.players);
@@ -85,7 +113,11 @@ export const useLeaderboardStore = defineStore("leaderboard", {
           this.eligibleTeams = [...this.eligibleTeams, newTeam];
         }
 
-        this.createdTeams = [...this.createdTeams, newTeam];
+        if (newTeam.isPinned) {
+          this.createdTeams.unshift(newTeam);
+        } else {
+          this.createdTeams = [...this.createdTeams, newTeam];
+        }
       });
     },
     getTeamScore(list) {
