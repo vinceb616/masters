@@ -4,9 +4,9 @@ import { useCookieStore } from "@/stores/cookies";
 
 export const useLeaderboardStore = defineStore("leaderboard", {
   state: () => ({
-    eventKey: "401580351",
-    tierPlayersPerGroup: 16,
-    tierGroupAmount: 10,
+    eventKey: "401703504",
+    tierPlayersPerGroup: 11,
+    tierGroupAmount: 8,
     date: "",
     leaderboard: [],
     players: [],

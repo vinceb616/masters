@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 export const useViewsStore = defineStore("viewsStore", {
   state: () => ({
-    event: "pga",
+    event: "masters",
     activeView: "standings",
   }),
   actions: {

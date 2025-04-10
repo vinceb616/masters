@@ -1,5 +1,8 @@
 <template>
-  <div class="w-full flex space-x-3">
+  <button
+    class="w-full flex space-x-3 items-center text-left"
+    @click="handleScrollTo(model.teamName)"
+  >
     <div class="text-sm md:text-base font-semibold w-8 flex items-center">
       {{ calculatedPosition }}
     </div>
@@ -48,7 +51,7 @@
         {{ displayScore }}
       </span>
     </div>
-  </div>
+  </button>
 </template>
 
 <script setup>
@@ -68,6 +71,21 @@ const props = defineProps({
     default: null,
   },
 });
+
+const handleScrollTo = (href) => {
+  const target = document.querySelector(`#${href}`);
+  const offsetPadding = 16;
+  let targetOffset = window.scrollY - offsetPadding;
+  let stickyOffset = 0;
+
+  if (target) {
+    targetOffset += target.getBoundingClientRect().top;
+    window.scrollTo({
+      top: targetOffset - stickyOffset,
+      behavior: "smooth",
+    });
+  }
+};
 
 const displayScore = computed(() => {
   if (props.model.totalScore === 0) {

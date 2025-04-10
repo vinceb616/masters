@@ -1,7 +1,7 @@
 <template>
   <div class="prose">
     <div class="w-full flex items-center justify-between space-x-4">
-      <h2 class="text-xl font-medium text-tournament-900">Rules</h2>
+      <h2 class="text-xl font-medium text-slate-700">Rules</h2>
     </div>
 
     <ul class="list-disc pl-6 py-6 space-y-2">

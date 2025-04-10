@@ -12,7 +12,7 @@
   </div>
   <div class="space-y-2">
     <div class="w-full px-3">
-      <h2 class="text-xl font-medium text-tournament-900">Leaderboard</h2>
+      <h2 class="text-xl font-medium text-slate-700">Leaderboard</h2>
     </div>
 
     <div class="space-y-4">
@@ -42,6 +42,7 @@ const state = reactive({
 
 const sortedLivePlayers = computed(() => {
   let playerList = [];
+  let playerHasNotStartedList = [];
   let cutPlayers = [];
 
   leaderboardStore.players.forEach((player) => {
@@ -50,6 +51,11 @@ const sortedLivePlayers = computed(() => {
       player.status?.displayValue === "CUT"
     ) {
       cutPlayers = [...cutPlayers, player];
+    } else if (
+      player.status?.type?.name === "STATUS_SCHEDULED" &&
+      player.status?.teeTime
+    ) {
+      playerHasNotStartedList = [...playerHasNotStartedList, player];
     } else {
       playerList = [...playerList, player];
     }
@@ -59,7 +65,7 @@ const sortedLivePlayers = computed(() => {
     a.statistics[0].value > b.statistics[0].value ? 1 : -1
   );
 
-  playerList = [...playerList, ...cutPlayers];
+  playerList = [...playerList, ...playerHasNotStartedList, ...cutPlayers];
 
   if (state.lookupName.length > 0) {
     return playerList.filter((player) =>

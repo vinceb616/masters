@@ -1,5 +1,8 @@
 <template>
-  <div class="w-full flex items-center justify-between space-x-4 px-3">
+  <div
+    class="w-full flex items-center justify-between space-x-4 px-3"
+    :id="name"
+  >
     <div class="flex">
       <button class="flex items-center space-x-2" @click="handlePinnedTeam()">
         <template v-if="leaderboardStore.createdTeams[teamIndex].isPinned">
@@ -8,7 +11,7 @@
         <template v-else>
           <star-outline-icon class="w-5 h-5" />
         </template>
-        <h2 class="text-xl font-medium text-tournament-900">
+        <h2 class="text-xl font-medium text-slate-700">
           {{ name }}
         </h2>
       </button>
