@@ -7,19 +7,19 @@
           <div class="font-semibold flex items-center">
             <trophy-icon class="h-3 w-3 text-amber-400" />
           </div>
-          <div class="flex-1 text-sm uppercase">$200</div>
+          <div class="flex-1 text-sm uppercase">$160</div>
         </div>
         <div class="w-full flex items-center space-x-1">
           <div class="font-semibold flex items-center">
             <trophy-icon class="h-3 w-3 text-grey-400" />
           </div>
-          <div class="flex-1 text-sm uppercase">$100</div>
+          <div class="flex-1 text-sm uppercase">$80</div>
         </div>
         <div class="w-full flex items-center space-x-1">
           <div class="font-semibold flex items-center">
             <trophy-icon class="h-3 w-3 text-amber-700" />
           </div>
-          <div class="flex-1 text-sm uppercase">$40</div>
+          <div class="flex-1 text-sm uppercase">$20</div>
         </div>
       </div>
     </div>
@@ -66,7 +66,7 @@ const handleScroll = () => {
 
 const handleButtonVisibility = () => {
   const offset = 800;
-  console.log(window.scrollY);
+
   if (window.scrollY > offset) {
     state.value.buttonIsVisible = true;
   } else {
